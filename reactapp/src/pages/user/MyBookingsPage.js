@@ -8,6 +8,7 @@ import {
   Button,
   Chip,
   Grid,
+  TextField,
   Dialog,
   DialogTitle,
   DialogContent,
@@ -173,6 +174,7 @@ const ExtendBookingDialog = ({ open, onClose, booking, onConfirm }) => {
                   onChange={setNewEndTime}
                   renderInput={(params) => <TextField {...params} fullWidth />}
                   minDateTime={dayjs(booking.endTime)}
+
                 />
               </Box>
 

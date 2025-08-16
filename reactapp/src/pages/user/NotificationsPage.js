@@ -406,3 +406,4 @@ const NotificationsPage = () => {
     </Box>
   );
 };
+export default NotificationsPage;

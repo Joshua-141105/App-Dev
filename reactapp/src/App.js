@@ -7,10 +7,6 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 // Auth Context
-const AuthContext = createContext();
-
-// Theme Context
-const ThemeContext = createContext();
 
 // Components
 import Navbar from './components/layout/Navbar';
@@ -58,7 +54,9 @@ import { getStoredUser, removeStoredUser } from './utils/auth';
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-
+  const AuthContext = createContext();
+  const ThemeContext = createContext();
+  
   useEffect(() => {
     const storedUser = getStoredUser();
     if (storedUser) {

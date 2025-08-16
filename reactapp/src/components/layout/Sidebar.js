@@ -179,3 +179,4 @@ const Sidebar = ({ mobileOpen, onMobileClose }) => {
     </Box>
   );
 };
+export default Sidebar;
