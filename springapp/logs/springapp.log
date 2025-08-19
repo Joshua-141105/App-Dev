@@ -4283,3 +4283,3507 @@
         parking_slot ps1_0 
     where
         ps1_0.slot_id=?
+2025-08-19T11:18:14.014+05:30  INFO 13152 --- [main] c.e.springapp.SpringappApplication       : Starting SpringappApplication using Java 17.0.16 with PID 13152 (C:\Users\ADMIN\Desktop\App Dev\springapp\target\classes started by ADMIN in C:\Users\ADMIN\Desktop\App Dev\springapp)
+2025-08-19T11:18:14.017+05:30 DEBUG 13152 --- [main] c.e.springapp.SpringappApplication       : Running with Spring Boot v3.2.5, Spring v6.1.6
+2025-08-19T11:18:14.019+05:30  INFO 13152 --- [main] c.e.springapp.SpringappApplication       : No active profile set, falling back to 1 default profile: "default"
+2025-08-19T11:18:15.297+05:30  INFO 13152 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-19T11:18:15.395+05:30  INFO 13152 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 96 ms. Found 10 JPA repository interfaces.
+2025-08-19T11:18:16.503+05:30  INFO 13152 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-19T11:18:16.523+05:30  INFO 13152 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-19T11:18:16.525+05:30  INFO 13152 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-08-19T11:18:16.626+05:30  INFO 13152 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-19T11:18:16.626+05:30  INFO 13152 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2539 ms
+2025-08-19T11:18:16.831+05:30  INFO 13152 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-19T11:18:16.940+05:30  INFO 13152 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-08-19T11:18:16.994+05:30  INFO 13152 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-08-19T11:18:17.383+05:30  INFO 13152 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-19T11:18:17.423+05:30  INFO 13152 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-08-19T11:18:17.992+05:30  INFO 13152 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6e49b011
+2025-08-19T11:18:17.992+05:30  INFO 13152 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-08-19T11:18:18.091+05:30  WARN 13152 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-19T11:18:19.782+05:30  INFO 13152 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-19T11:18:20.144+05:30  INFO 13152 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-19T11:18:20.642+05:30 DEBUG 13152 --- [main] c.e.s.s.jwt.JwtAuthenticationFilter      : Filter 'jwtAuthenticationFilter' configured for use
+2025-08-19T11:18:20.695+05:30  INFO 13152 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-19T11:18:21.764+05:30  WARN 13152 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-19T11:18:22.218+05:30  INFO 13152 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5da5bd9e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@165ec33, org.springframework.security.web.context.SecurityContextHolderFilter@f53070c, org.springframework.security.web.header.HeaderWriterFilter@79009bde, org.springframework.web.filter.CorsFilter@3746749, org.springframework.security.web.authentication.logout.LogoutFilter@5a558335, com.example.springapp.security.jwt.JwtAuthenticationFilter@39adf4e6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@392a40d9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2c9542eb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@76b17a78, org.springframework.security.web.session.SessionManagementFilter@349a8977, org.springframework.security.web.access.ExceptionTranslationFilter@6022cf7e, org.springframework.security.web.access.intercept.AuthorizationFilter@29d578de]
+2025-08-19T11:18:22.787+05:30  INFO 13152 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-08-19T11:18:22.814+05:30  INFO 13152 --- [main] c.e.springapp.SpringappApplication       : Started SpringappApplication in 9.423 seconds (process running for 10.13)
+2025-08-19T11:18:22.924+05:30 DEBUG 13152 --- [main] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id 
+    from
+        user u1_0 
+    where
+        u1_0.role=? 
+    limit
+        ?
+2025-08-19T11:19:42.899+05:30  INFO 13152 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-19T11:19:42.908+05:30  INFO 13152 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-19T11:19:42.943+05:30  INFO 13152 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 35 ms
+2025-08-19T11:19:42.985+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/auth/login
+2025-08-19T11:19:43.017+05:30 DEBUG 13152 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/login
+2025-08-19T11:19:43.024+05:30 DEBUG 13152 --- [http-nio-8080-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-08-19T11:19:43.026+05:30 DEBUG 13152 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/login
+2025-08-19T11:19:43.306+05:30 DEBUG 13152 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:19:43.456+05:30 DEBUG 13152 --- [http-nio-8080-exec-4] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2025-08-19T11:19:43.458+05:30 DEBUG 13152 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:19:43.519+05:30 DEBUG 13152 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    update
+        user 
+    set
+        email=?,
+        email_verified=?,
+        first_name=?,
+        is_active=?,
+        last_login=?,
+        last_name=?,
+        password_hash=?,
+        phone=?,
+        registration_date=?,
+        role=?,
+        username=? 
+    where
+        user_id=?
+2025-08-19T11:19:43.625+05:30  INFO 13152 --- [http-nio-8080-exec-4] c.e.springapp.service.AuditLogService    : Audit Log Created: anonymousUser performed LOGIN on Authentication with severity LOW
+2025-08-19T11:19:43.636+05:30 DEBUG 13152 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    insert 
+    into
+        audit_log
+        (action, changes, details, ip_address, resource, session_id, severity, timestamp, user_agent, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-08-19T11:19:43.820+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/notifications/user/1/unread-count
+2025-08-19T11:19:43.825+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/facilities
+2025-08-19T11:19:43.827+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/users
+2025-08-19T11:19:43.828+05:30 DEBUG 13152 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/bookings
+2025-08-19T11:19:43.829+05:30 DEBUG 13152 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/notifications/user/1/unread-count
+2025-08-19T11:19:43.833+05:30 DEBUG 13152 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/users
+2025-08-19T11:19:43.833+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/facilities
+2025-08-19T11:19:43.839+05:30 DEBUG 13152 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/bookings
+2025-08-19T11:19:43.850+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /api/notifications/user/1/unread-count
+2025-08-19T11:19:43.850+05:30 DEBUG 13152 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /api/facilities
+2025-08-19T11:19:43.852+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /api/bookings
+2025-08-19T11:19:43.852+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /api/users
+2025-08-19T11:19:43.902+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:19:43.902+05:30 DEBUG 13152 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:19:43.902+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:19:43.903+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:19:43.923+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /api/bookings
+2025-08-19T11:19:43.927+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /api/notifications/user/1/unread-count
+2025-08-19T11:19:43.927+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /api/users
+2025-08-19T11:19:43.940+05:30 DEBUG 13152 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /api/facilities
+2025-08-19T11:19:43.942+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0
+2025-08-19T11:19:43.949+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        count(n1_0.notification_id) 
+    from
+        notification n1_0 
+    left join
+        user u1_0 
+            on u1_0.user_id=n1_0.user_id 
+    where
+        u1_0.user_id=? 
+        and not(n1_0.is_read)
+2025-08-19T11:19:43.953+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        b1_0.booking_id,
+        b1_0.check_in_time,
+        b1_0.check_out_time,
+        b1_0.created_date,
+        b1_0.end_time,
+        b1_0.extended_time,
+        b1_0.last_modified,
+        b1_0.slot_id,
+        b1_0.start_time,
+        b1_0.status,
+        b1_0.total_cost,
+        b1_0.user_id,
+        b1_0.vehicle_number 
+    from
+        booking b1_0
+2025-08-19T11:19:43.953+05:30 DEBUG 13152 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        f1_0.facility_id,
+        f1_0.address,
+        f1_0.available_slots,
+        f1_0.city,
+        f1_0.contact_info,
+        f1_0.created_date,
+        f1_0.facility_name,
+        f1_0.latitude,
+        f1_0.longitude,
+        f1_0.manager_id,
+        f1_0.operating_hours,
+        f1_0.state,
+        f1_0.total_slots,
+        f1_0.zip_code 
+    from
+        facility f1_0
+2025-08-19T11:19:43.974+05:30 DEBUG 13152 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /api/notifications/user/1/unread-count
+2025-08-19T11:19:43.977+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        p1_0.payment_id,
+        p1_0.amount,
+        p1_0.booking_id,
+        b1_0.booking_id,
+        b1_0.check_in_time,
+        b1_0.check_out_time,
+        b1_0.created_date,
+        b1_0.end_time,
+        b1_0.extended_time,
+        b1_0.last_modified,
+        b1_0.slot_id,
+        s1_0.slot_id,
+        s1_0.coordinates,
+        s1_0.created_date,
+        s1_0.facility_id,
+        s1_0.features,
+        s1_0.floor,
+        s1_0.hourly_rate,
+        s1_0.is_available,
+        s1_0.last_modified,
+        s1_0.section,
+        s1_0.slot_number,
+        s1_0.slot_type,
+        b1_0.start_time,
+        b1_0.status,
+        b1_0.total_cost,
+        b1_0.user_id,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username,
+        b1_0.vehicle_number,
+        p1_0.gateway_response,
+        p1_0.payment_date,
+        p1_0.payment_method,
+        p1_0.refund_amount,
+        p1_0.status,
+        p1_0.transaction_id 
+    from
+        payment p1_0 
+    join
+        booking b1_0 
+            on b1_0.booking_id=p1_0.booking_id 
+    left join
+        parking_slot s1_0 
+            on s1_0.slot_id=b1_0.slot_id 
+    left join
+        user u1_0 
+            on u1_0.user_id=b1_0.user_id 
+    where
+        p1_0.booking_id=?
+2025-08-19T11:19:43.978+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /api/users
+2025-08-19T11:19:43.986+05:30 DEBUG 13152 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.user_id=?
+2025-08-19T11:19:43.986+05:30 DEBUG 13152 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:19:43.992+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:19:44.019+05:30 DEBUG 13152 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /api/facilities
+2025-08-19T11:19:44.020+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /api/users
+2025-08-19T11:19:44.025+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        p1_0.payment_id,
+        p1_0.amount,
+        p1_0.booking_id,
+        b1_0.booking_id,
+        b1_0.check_in_time,
+        b1_0.check_out_time,
+        b1_0.created_date,
+        b1_0.end_time,
+        b1_0.extended_time,
+        b1_0.last_modified,
+        b1_0.slot_id,
+        s1_0.slot_id,
+        s1_0.coordinates,
+        s1_0.created_date,
+        s1_0.facility_id,
+        s1_0.features,
+        s1_0.floor,
+        s1_0.hourly_rate,
+        s1_0.is_available,
+        s1_0.last_modified,
+        s1_0.section,
+        s1_0.slot_number,
+        s1_0.slot_type,
+        b1_0.start_time,
+        b1_0.status,
+        b1_0.total_cost,
+        b1_0.user_id,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username,
+        b1_0.vehicle_number,
+        p1_0.gateway_response,
+        p1_0.payment_date,
+        p1_0.payment_method,
+        p1_0.refund_amount,
+        p1_0.status,
+        p1_0.transaction_id 
+    from
+        payment p1_0 
+    join
+        booking b1_0 
+            on b1_0.booking_id=p1_0.booking_id 
+    left join
+        parking_slot s1_0 
+            on s1_0.slot_id=b1_0.slot_id 
+    left join
+        user u1_0 
+            on u1_0.user_id=b1_0.user_id 
+    where
+        p1_0.booking_id=?
+2025-08-19T11:19:44.024+05:30 DEBUG 13152 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /api/notifications/user/1/unread-count
+2025-08-19T11:19:44.026+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0
+2025-08-19T11:19:44.031+05:30 DEBUG 13152 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:19:44.039+05:30 DEBUG 13152 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        count(n1_0.notification_id) 
+    from
+        notification n1_0 
+    left join
+        user u1_0 
+            on u1_0.user_id=n1_0.user_id 
+    where
+        u1_0.user_id=? 
+        and not(n1_0.is_read)
+2025-08-19T11:19:44.046+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        p1_0.payment_id,
+        p1_0.amount,
+        p1_0.booking_id,
+        b1_0.booking_id,
+        b1_0.check_in_time,
+        b1_0.check_out_time,
+        b1_0.created_date,
+        b1_0.end_time,
+        b1_0.extended_time,
+        b1_0.last_modified,
+        b1_0.slot_id,
+        s1_0.slot_id,
+        s1_0.coordinates,
+        s1_0.created_date,
+        s1_0.facility_id,
+        s1_0.features,
+        s1_0.floor,
+        s1_0.hourly_rate,
+        s1_0.is_available,
+        s1_0.last_modified,
+        s1_0.section,
+        s1_0.slot_number,
+        s1_0.slot_type,
+        b1_0.start_time,
+        b1_0.status,
+        b1_0.total_cost,
+        b1_0.user_id,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username,
+        b1_0.vehicle_number,
+        p1_0.gateway_response,
+        p1_0.payment_date,
+        p1_0.payment_method,
+        p1_0.refund_amount,
+        p1_0.status,
+        p1_0.transaction_id 
+    from
+        payment p1_0 
+    join
+        booking b1_0 
+            on b1_0.booking_id=p1_0.booking_id 
+    left join
+        parking_slot s1_0 
+            on s1_0.slot_id=b1_0.slot_id 
+    left join
+        user u1_0 
+            on u1_0.user_id=b1_0.user_id 
+    where
+        p1_0.booking_id=?
+2025-08-19T11:19:44.061+05:30 DEBUG 13152 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /api/facilities
+2025-08-19T11:19:44.075+05:30 DEBUG 13152 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        f1_0.facility_id,
+        f1_0.address,
+        f1_0.available_slots,
+        f1_0.city,
+        f1_0.contact_info,
+        f1_0.created_date,
+        f1_0.facility_name,
+        f1_0.latitude,
+        f1_0.longitude,
+        f1_0.manager_id,
+        f1_0.operating_hours,
+        f1_0.state,
+        f1_0.total_slots,
+        f1_0.zip_code 
+    from
+        facility f1_0
+2025-08-19T11:19:44.083+05:30 DEBUG 13152 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.user_id=?
+2025-08-19T11:19:44.088+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /api/bookings
+2025-08-19T11:19:44.095+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:19:44.111+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /api/bookings
+2025-08-19T11:19:44.115+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        b1_0.booking_id,
+        b1_0.check_in_time,
+        b1_0.check_out_time,
+        b1_0.created_date,
+        b1_0.end_time,
+        b1_0.extended_time,
+        b1_0.last_modified,
+        b1_0.slot_id,
+        b1_0.start_time,
+        b1_0.status,
+        b1_0.total_cost,
+        b1_0.user_id,
+        b1_0.vehicle_number 
+    from
+        booking b1_0
+2025-08-19T11:19:44.120+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        p1_0.payment_id,
+        p1_0.amount,
+        p1_0.booking_id,
+        b1_0.booking_id,
+        b1_0.check_in_time,
+        b1_0.check_out_time,
+        b1_0.created_date,
+        b1_0.end_time,
+        b1_0.extended_time,
+        b1_0.last_modified,
+        b1_0.slot_id,
+        s1_0.slot_id,
+        s1_0.coordinates,
+        s1_0.created_date,
+        s1_0.facility_id,
+        s1_0.features,
+        s1_0.floor,
+        s1_0.hourly_rate,
+        s1_0.is_available,
+        s1_0.last_modified,
+        s1_0.section,
+        s1_0.slot_number,
+        s1_0.slot_type,
+        b1_0.start_time,
+        b1_0.status,
+        b1_0.total_cost,
+        b1_0.user_id,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username,
+        b1_0.vehicle_number,
+        p1_0.gateway_response,
+        p1_0.payment_date,
+        p1_0.payment_method,
+        p1_0.refund_amount,
+        p1_0.status,
+        p1_0.transaction_id 
+    from
+        payment p1_0 
+    join
+        booking b1_0 
+            on b1_0.booking_id=p1_0.booking_id 
+    left join
+        parking_slot s1_0 
+            on s1_0.slot_id=b1_0.slot_id 
+    left join
+        user u1_0 
+            on u1_0.user_id=b1_0.user_id 
+    where
+        p1_0.booking_id=?
+2025-08-19T11:19:44.135+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        p1_0.payment_id,
+        p1_0.amount,
+        p1_0.booking_id,
+        b1_0.booking_id,
+        b1_0.check_in_time,
+        b1_0.check_out_time,
+        b1_0.created_date,
+        b1_0.end_time,
+        b1_0.extended_time,
+        b1_0.last_modified,
+        b1_0.slot_id,
+        s1_0.slot_id,
+        s1_0.coordinates,
+        s1_0.created_date,
+        s1_0.facility_id,
+        s1_0.features,
+        s1_0.floor,
+        s1_0.hourly_rate,
+        s1_0.is_available,
+        s1_0.last_modified,
+        s1_0.section,
+        s1_0.slot_number,
+        s1_0.slot_type,
+        b1_0.start_time,
+        b1_0.status,
+        b1_0.total_cost,
+        b1_0.user_id,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username,
+        b1_0.vehicle_number,
+        p1_0.gateway_response,
+        p1_0.payment_date,
+        p1_0.payment_method,
+        p1_0.refund_amount,
+        p1_0.status,
+        p1_0.transaction_id 
+    from
+        payment p1_0 
+    join
+        booking b1_0 
+            on b1_0.booking_id=p1_0.booking_id 
+    left join
+        parking_slot s1_0 
+            on s1_0.slot_id=b1_0.slot_id 
+    left join
+        user u1_0 
+            on u1_0.user_id=b1_0.user_id 
+    where
+        p1_0.booking_id=?
+2025-08-19T11:19:44.152+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        p1_0.payment_id,
+        p1_0.amount,
+        p1_0.booking_id,
+        b1_0.booking_id,
+        b1_0.check_in_time,
+        b1_0.check_out_time,
+        b1_0.created_date,
+        b1_0.end_time,
+        b1_0.extended_time,
+        b1_0.last_modified,
+        b1_0.slot_id,
+        s1_0.slot_id,
+        s1_0.coordinates,
+        s1_0.created_date,
+        s1_0.facility_id,
+        s1_0.features,
+        s1_0.floor,
+        s1_0.hourly_rate,
+        s1_0.is_available,
+        s1_0.last_modified,
+        s1_0.section,
+        s1_0.slot_number,
+        s1_0.slot_type,
+        b1_0.start_time,
+        b1_0.status,
+        b1_0.total_cost,
+        b1_0.user_id,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username,
+        b1_0.vehicle_number,
+        p1_0.gateway_response,
+        p1_0.payment_date,
+        p1_0.payment_method,
+        p1_0.refund_amount,
+        p1_0.status,
+        p1_0.transaction_id 
+    from
+        payment p1_0 
+    join
+        booking b1_0 
+            on b1_0.booking_id=p1_0.booking_id 
+    left join
+        parking_slot s1_0 
+            on s1_0.slot_id=b1_0.slot_id 
+    left join
+        user u1_0 
+            on u1_0.user_id=b1_0.user_id 
+    where
+        p1_0.booking_id=?
+2025-08-19T11:19:55.052+05:30 DEBUG 13152 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/users/1
+2025-08-19T11:19:55.052+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/users/1
+2025-08-19T11:19:55.061+05:30 DEBUG 13152 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /api/users/1
+2025-08-19T11:19:55.072+05:30 DEBUG 13152 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:19:55.087+05:30 DEBUG 13152 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /api/users/1
+2025-08-19T11:19:55.092+05:30 DEBUG 13152 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.user_id=?
+2025-08-19T11:19:55.105+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /api/users/1
+2025-08-19T11:19:55.109+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:19:55.119+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /api/users/1
+2025-08-19T11:19:55.122+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.user_id=?
+2025-08-19T11:19:58.425+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/parkingslots
+2025-08-19T11:19:58.426+05:30 DEBUG 13152 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/parkingslots
+2025-08-19T11:19:58.426+05:30 DEBUG 13152 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/facilities
+2025-08-19T11:19:58.426+05:30 DEBUG 13152 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/facilities
+2025-08-19T11:19:58.432+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /api/parkingslots
+2025-08-19T11:19:58.433+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /api/facilities
+2025-08-19T11:19:58.438+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:19:58.438+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:19:58.452+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /api/parkingslots
+2025-08-19T11:19:58.454+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /api/facilities
+2025-08-19T11:19:58.455+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        ps1_0.slot_id,
+        ps1_0.coordinates,
+        ps1_0.created_date,
+        ps1_0.facility_id,
+        ps1_0.features,
+        ps1_0.floor,
+        ps1_0.hourly_rate,
+        ps1_0.is_available,
+        ps1_0.last_modified,
+        ps1_0.section,
+        ps1_0.slot_number,
+        ps1_0.slot_type 
+    from
+        parking_slot ps1_0
+2025-08-19T11:19:58.457+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        f1_0.facility_id,
+        f1_0.address,
+        f1_0.available_slots,
+        f1_0.city,
+        f1_0.contact_info,
+        f1_0.created_date,
+        f1_0.facility_name,
+        f1_0.latitude,
+        f1_0.longitude,
+        f1_0.manager_id,
+        f1_0.operating_hours,
+        f1_0.state,
+        f1_0.total_slots,
+        f1_0.zip_code 
+    from
+        facility f1_0
+2025-08-19T11:19:58.468+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.user_id=?
+2025-08-19T11:19:58.474+05:30 DEBUG 13152 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /api/parkingslots
+2025-08-19T11:19:58.479+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /api/facilities
+2025-08-19T11:19:58.482+05:30 DEBUG 13152 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:19:58.487+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:19:58.495+05:30 DEBUG 13152 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /api/parkingslots
+2025-08-19T11:19:58.499+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /api/facilities
+2025-08-19T11:19:58.500+05:30 DEBUG 13152 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        ps1_0.slot_id,
+        ps1_0.coordinates,
+        ps1_0.created_date,
+        ps1_0.facility_id,
+        ps1_0.features,
+        ps1_0.floor,
+        ps1_0.hourly_rate,
+        ps1_0.is_available,
+        ps1_0.last_modified,
+        ps1_0.section,
+        ps1_0.slot_number,
+        ps1_0.slot_type 
+    from
+        parking_slot ps1_0
+2025-08-19T11:19:58.504+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        f1_0.facility_id,
+        f1_0.address,
+        f1_0.available_slots,
+        f1_0.city,
+        f1_0.contact_info,
+        f1_0.created_date,
+        f1_0.facility_name,
+        f1_0.latitude,
+        f1_0.longitude,
+        f1_0.manager_id,
+        f1_0.operating_hours,
+        f1_0.state,
+        f1_0.total_slots,
+        f1_0.zip_code 
+    from
+        facility f1_0
+2025-08-19T11:19:58.510+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.user_id=?
+2025-08-19T11:19:59.979+05:30 DEBUG 13152 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/vehicles
+2025-08-19T11:19:59.978+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/vehicles
+2025-08-19T11:19:59.984+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /api/vehicles
+2025-08-19T11:19:59.992+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:20:00.020+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /api/vehicles
+2025-08-19T11:20:00.026+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        v1_0.vehicle_id,
+        v1_0.color,
+        v1_0.created_date,
+        v1_0.is_default,
+        v1_0.license_plate,
+        v1_0.make,
+        v1_0.model,
+        v1_0.user_id,
+        v1_0.vehicle_type,
+        v1_0.year 
+    from
+        vehicle v1_0
+2025-08-19T11:20:00.038+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.user_id=?
+2025-08-19T11:20:00.053+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /api/vehicles
+2025-08-19T11:20:00.057+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:20:00.069+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /api/vehicles
+2025-08-19T11:20:00.072+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        v1_0.vehicle_id,
+        v1_0.color,
+        v1_0.created_date,
+        v1_0.is_default,
+        v1_0.license_plate,
+        v1_0.make,
+        v1_0.model,
+        v1_0.user_id,
+        v1_0.vehicle_type,
+        v1_0.year 
+    from
+        vehicle v1_0
+2025-08-19T11:20:00.077+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.user_id=?
+2025-08-19T11:26:32.156+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/users/1
+2025-08-19T11:26:32.156+05:30 DEBUG 13152 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/users/1
+2025-08-19T11:26:32.162+05:30 DEBUG 13152 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /api/users/1
+2025-08-19T11:26:32.167+05:30 DEBUG 13152 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:26:32.181+05:30 DEBUG 13152 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /api/users/1
+2025-08-19T11:26:32.213+05:30 DEBUG 13152 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.user_id=?
+2025-08-19T11:26:32.222+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /api/users/1
+2025-08-19T11:26:32.230+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:26:32.244+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /api/users/1
+2025-08-19T11:26:32.251+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.user_id=?
+2025-08-19T11:26:32.886+05:30 DEBUG 13152 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/parkingslots
+2025-08-19T11:26:32.888+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/facilities
+2025-08-19T11:26:32.888+05:30 DEBUG 13152 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/facilities
+2025-08-19T11:26:32.889+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/parkingslots
+2025-08-19T11:26:32.891+05:30 DEBUG 13152 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /api/parkingslots
+2025-08-19T11:26:32.897+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /api/facilities
+2025-08-19T11:26:32.901+05:30 DEBUG 13152 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:26:32.910+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:26:32.924+05:30 DEBUG 13152 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /api/parkingslots
+2025-08-19T11:26:32.926+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /api/facilities
+2025-08-19T11:26:32.930+05:30 DEBUG 13152 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        ps1_0.slot_id,
+        ps1_0.coordinates,
+        ps1_0.created_date,
+        ps1_0.facility_id,
+        ps1_0.features,
+        ps1_0.floor,
+        ps1_0.hourly_rate,
+        ps1_0.is_available,
+        ps1_0.last_modified,
+        ps1_0.section,
+        ps1_0.slot_number,
+        ps1_0.slot_type 
+    from
+        parking_slot ps1_0
+2025-08-19T11:26:32.932+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        f1_0.facility_id,
+        f1_0.address,
+        f1_0.available_slots,
+        f1_0.city,
+        f1_0.contact_info,
+        f1_0.created_date,
+        f1_0.facility_name,
+        f1_0.latitude,
+        f1_0.longitude,
+        f1_0.manager_id,
+        f1_0.operating_hours,
+        f1_0.state,
+        f1_0.total_slots,
+        f1_0.zip_code 
+    from
+        facility f1_0
+2025-08-19T11:26:32.939+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.user_id=?
+2025-08-19T11:26:32.951+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /api/parkingslots
+2025-08-19T11:26:32.956+05:30 DEBUG 13152 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /api/facilities
+2025-08-19T11:26:32.956+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:26:32.964+05:30 DEBUG 13152 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:26:32.974+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /api/parkingslots
+2025-08-19T11:26:32.977+05:30 DEBUG 13152 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /api/facilities
+2025-08-19T11:26:32.979+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        ps1_0.slot_id,
+        ps1_0.coordinates,
+        ps1_0.created_date,
+        ps1_0.facility_id,
+        ps1_0.features,
+        ps1_0.floor,
+        ps1_0.hourly_rate,
+        ps1_0.is_available,
+        ps1_0.last_modified,
+        ps1_0.section,
+        ps1_0.slot_number,
+        ps1_0.slot_type 
+    from
+        parking_slot ps1_0
+2025-08-19T11:26:32.983+05:30 DEBUG 13152 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        f1_0.facility_id,
+        f1_0.address,
+        f1_0.available_slots,
+        f1_0.city,
+        f1_0.contact_info,
+        f1_0.created_date,
+        f1_0.facility_name,
+        f1_0.latitude,
+        f1_0.longitude,
+        f1_0.manager_id,
+        f1_0.operating_hours,
+        f1_0.state,
+        f1_0.total_slots,
+        f1_0.zip_code 
+    from
+        facility f1_0
+2025-08-19T11:26:32.991+05:30 DEBUG 13152 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.user_id=?
+2025-08-19T11:27:02.894+05:30 DEBUG 13152 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/parkingslots
+2025-08-19T11:27:02.898+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /api/parkingslots
+2025-08-19T11:27:02.905+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:27:02.918+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /api/parkingslots
+2025-08-19T11:27:02.921+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        ps1_0.slot_id,
+        ps1_0.coordinates,
+        ps1_0.created_date,
+        ps1_0.facility_id,
+        ps1_0.features,
+        ps1_0.floor,
+        ps1_0.hourly_rate,
+        ps1_0.is_available,
+        ps1_0.last_modified,
+        ps1_0.section,
+        ps1_0.slot_number,
+        ps1_0.slot_type 
+    from
+        parking_slot ps1_0
+2025-08-19T11:27:32.889+05:30 DEBUG 13152 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/parkingslots
+2025-08-19T11:27:32.894+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /api/parkingslots
+2025-08-19T11:27:32.902+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:27:32.914+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /api/parkingslots
+2025-08-19T11:27:32.916+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        ps1_0.slot_id,
+        ps1_0.coordinates,
+        ps1_0.created_date,
+        ps1_0.facility_id,
+        ps1_0.features,
+        ps1_0.floor,
+        ps1_0.hourly_rate,
+        ps1_0.is_available,
+        ps1_0.last_modified,
+        ps1_0.section,
+        ps1_0.slot_number,
+        ps1_0.slot_type 
+    from
+        parking_slot ps1_0
+2025-08-19T11:28:02.889+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/parkingslots
+2025-08-19T11:28:02.889+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /api/parkingslots
+2025-08-19T11:28:02.904+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:28:02.917+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /api/parkingslots
+2025-08-19T11:28:02.919+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        ps1_0.slot_id,
+        ps1_0.coordinates,
+        ps1_0.created_date,
+        ps1_0.facility_id,
+        ps1_0.features,
+        ps1_0.floor,
+        ps1_0.hourly_rate,
+        ps1_0.is_available,
+        ps1_0.last_modified,
+        ps1_0.section,
+        ps1_0.slot_number,
+        ps1_0.slot_type 
+    from
+        parking_slot ps1_0
+2025-08-19T11:28:32.890+05:30 DEBUG 13152 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/parkingslots
+2025-08-19T11:28:32.890+05:30 DEBUG 13152 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /api/parkingslots
+2025-08-19T11:28:32.913+05:30 DEBUG 13152 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:28:32.926+05:30 DEBUG 13152 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /api/parkingslots
+2025-08-19T11:28:32.930+05:30 DEBUG 13152 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        ps1_0.slot_id,
+        ps1_0.coordinates,
+        ps1_0.created_date,
+        ps1_0.facility_id,
+        ps1_0.features,
+        ps1_0.floor,
+        ps1_0.hourly_rate,
+        ps1_0.is_available,
+        ps1_0.last_modified,
+        ps1_0.section,
+        ps1_0.slot_number,
+        ps1_0.slot_type 
+    from
+        parking_slot ps1_0
+2025-08-19T11:29:02.912+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/parkingslots
+2025-08-19T11:29:02.912+05:30 DEBUG 13152 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /api/parkingslots
+2025-08-19T11:29:02.912+05:30 DEBUG 13152 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:29:02.932+05:30 DEBUG 13152 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Secured GET /api/parkingslots
+2025-08-19T11:29:02.935+05:30 DEBUG 13152 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        ps1_0.slot_id,
+        ps1_0.coordinates,
+        ps1_0.created_date,
+        ps1_0.facility_id,
+        ps1_0.features,
+        ps1_0.floor,
+        ps1_0.hourly_rate,
+        ps1_0.is_available,
+        ps1_0.last_modified,
+        ps1_0.section,
+        ps1_0.slot_number,
+        ps1_0.slot_type 
+    from
+        parking_slot ps1_0
+2025-08-19T11:29:32.891+05:30 DEBUG 13152 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/parkingslots
+2025-08-19T11:29:32.891+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /api/parkingslots
+2025-08-19T11:29:32.910+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:29:32.922+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /api/parkingslots
+2025-08-19T11:29:32.925+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        ps1_0.slot_id,
+        ps1_0.coordinates,
+        ps1_0.created_date,
+        ps1_0.facility_id,
+        ps1_0.features,
+        ps1_0.floor,
+        ps1_0.hourly_rate,
+        ps1_0.is_available,
+        ps1_0.last_modified,
+        ps1_0.section,
+        ps1_0.slot_number,
+        ps1_0.slot_type 
+    from
+        parking_slot ps1_0
+2025-08-19T11:30:02.886+05:30 DEBUG 13152 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/parkingslots
+2025-08-19T11:30:02.886+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /api/parkingslots
+2025-08-19T11:30:02.886+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:30:02.901+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /api/parkingslots
+2025-08-19T11:30:02.904+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        ps1_0.slot_id,
+        ps1_0.coordinates,
+        ps1_0.created_date,
+        ps1_0.facility_id,
+        ps1_0.features,
+        ps1_0.floor,
+        ps1_0.hourly_rate,
+        ps1_0.is_available,
+        ps1_0.last_modified,
+        ps1_0.section,
+        ps1_0.slot_number,
+        ps1_0.slot_type 
+    from
+        parking_slot ps1_0
+2025-08-19T11:30:32.895+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/parkingslots
+2025-08-19T11:30:32.895+05:30 DEBUG 13152 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /api/parkingslots
+2025-08-19T11:30:32.895+05:30 DEBUG 13152 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:30:32.915+05:30 DEBUG 13152 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /api/parkingslots
+2025-08-19T11:30:32.918+05:30 DEBUG 13152 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        ps1_0.slot_id,
+        ps1_0.coordinates,
+        ps1_0.created_date,
+        ps1_0.facility_id,
+        ps1_0.features,
+        ps1_0.floor,
+        ps1_0.hourly_rate,
+        ps1_0.is_available,
+        ps1_0.last_modified,
+        ps1_0.section,
+        ps1_0.slot_number,
+        ps1_0.slot_type 
+    from
+        parking_slot ps1_0
+2025-08-19T11:31:02.893+05:30 DEBUG 13152 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/parkingslots
+2025-08-19T11:31:02.893+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /api/parkingslots
+2025-08-19T11:31:02.912+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:31:02.923+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /api/parkingslots
+2025-08-19T11:31:02.925+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        ps1_0.slot_id,
+        ps1_0.coordinates,
+        ps1_0.created_date,
+        ps1_0.facility_id,
+        ps1_0.features,
+        ps1_0.floor,
+        ps1_0.hourly_rate,
+        ps1_0.is_available,
+        ps1_0.last_modified,
+        ps1_0.section,
+        ps1_0.slot_number,
+        ps1_0.slot_type 
+    from
+        parking_slot ps1_0
+2025-08-19T11:31:33.295+05:30 DEBUG 13152 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/parkingslots
+2025-08-19T11:31:33.295+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /api/parkingslots
+2025-08-19T11:31:33.295+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:31:33.315+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /api/parkingslots
+2025-08-19T11:31:33.318+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        ps1_0.slot_id,
+        ps1_0.coordinates,
+        ps1_0.created_date,
+        ps1_0.facility_id,
+        ps1_0.features,
+        ps1_0.floor,
+        ps1_0.hourly_rate,
+        ps1_0.is_available,
+        ps1_0.last_modified,
+        ps1_0.section,
+        ps1_0.slot_number,
+        ps1_0.slot_type 
+    from
+        parking_slot ps1_0
+2025-08-19T11:32:03.292+05:30 DEBUG 13152 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/parkingslots
+2025-08-19T11:32:03.292+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /api/parkingslots
+2025-08-19T11:32:03.308+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:32:03.319+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /api/parkingslots
+2025-08-19T11:32:03.322+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        ps1_0.slot_id,
+        ps1_0.coordinates,
+        ps1_0.created_date,
+        ps1_0.facility_id,
+        ps1_0.features,
+        ps1_0.floor,
+        ps1_0.hourly_rate,
+        ps1_0.is_available,
+        ps1_0.last_modified,
+        ps1_0.section,
+        ps1_0.slot_number,
+        ps1_0.slot_type 
+    from
+        parking_slot ps1_0
+2025-08-19T11:33:04.291+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/parkingslots
+2025-08-19T11:33:04.291+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /api/parkingslots
+2025-08-19T11:33:04.291+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:33:04.312+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /api/parkingslots
+2025-08-19T11:33:04.315+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        ps1_0.slot_id,
+        ps1_0.coordinates,
+        ps1_0.created_date,
+        ps1_0.facility_id,
+        ps1_0.features,
+        ps1_0.floor,
+        ps1_0.hourly_rate,
+        ps1_0.is_available,
+        ps1_0.last_modified,
+        ps1_0.section,
+        ps1_0.slot_number,
+        ps1_0.slot_type 
+    from
+        parking_slot ps1_0
+2025-08-19T11:34:05.295+05:30 DEBUG 13152 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/parkingslots
+2025-08-19T11:34:05.299+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /api/parkingslots
+2025-08-19T11:34:05.303+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:34:05.316+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /api/parkingslots
+2025-08-19T11:34:05.319+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        ps1_0.slot_id,
+        ps1_0.coordinates,
+        ps1_0.created_date,
+        ps1_0.facility_id,
+        ps1_0.features,
+        ps1_0.floor,
+        ps1_0.hourly_rate,
+        ps1_0.is_available,
+        ps1_0.last_modified,
+        ps1_0.section,
+        ps1_0.slot_number,
+        ps1_0.slot_type 
+    from
+        parking_slot ps1_0
+2025-08-19T11:35:06.287+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/parkingslots
+2025-08-19T11:35:06.287+05:30 DEBUG 13152 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /api/parkingslots
+2025-08-19T11:35:06.309+05:30 DEBUG 13152 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:35:06.318+05:30 DEBUG 13152 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /api/parkingslots
+2025-08-19T11:35:06.320+05:30 DEBUG 13152 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        ps1_0.slot_id,
+        ps1_0.coordinates,
+        ps1_0.created_date,
+        ps1_0.facility_id,
+        ps1_0.features,
+        ps1_0.floor,
+        ps1_0.hourly_rate,
+        ps1_0.is_available,
+        ps1_0.last_modified,
+        ps1_0.section,
+        ps1_0.slot_number,
+        ps1_0.slot_type 
+    from
+        parking_slot ps1_0
+2025-08-19T11:35:33.299+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/parkingslots
+2025-08-19T11:35:33.303+05:30 DEBUG 13152 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /api/parkingslots
+2025-08-19T11:35:33.309+05:30 DEBUG 13152 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:35:33.324+05:30 DEBUG 13152 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /api/parkingslots
+2025-08-19T11:35:33.327+05:30 DEBUG 13152 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        ps1_0.slot_id,
+        ps1_0.coordinates,
+        ps1_0.created_date,
+        ps1_0.facility_id,
+        ps1_0.features,
+        ps1_0.floor,
+        ps1_0.hourly_rate,
+        ps1_0.is_available,
+        ps1_0.last_modified,
+        ps1_0.section,
+        ps1_0.slot_number,
+        ps1_0.slot_type 
+    from
+        parking_slot ps1_0
+2025-08-19T11:36:03.297+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/parkingslots
+2025-08-19T11:36:03.297+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /api/parkingslots
+2025-08-19T11:36:03.321+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:36:03.334+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /api/parkingslots
+2025-08-19T11:36:03.337+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        ps1_0.slot_id,
+        ps1_0.coordinates,
+        ps1_0.created_date,
+        ps1_0.facility_id,
+        ps1_0.features,
+        ps1_0.floor,
+        ps1_0.hourly_rate,
+        ps1_0.is_available,
+        ps1_0.last_modified,
+        ps1_0.section,
+        ps1_0.slot_number,
+        ps1_0.slot_type 
+    from
+        parking_slot ps1_0
+2025-08-19T11:37:04.288+05:30 DEBUG 13152 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/parkingslots
+2025-08-19T11:37:04.288+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /api/parkingslots
+2025-08-19T11:37:04.288+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:37:04.309+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /api/parkingslots
+2025-08-19T11:37:04.312+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        ps1_0.slot_id,
+        ps1_0.coordinates,
+        ps1_0.created_date,
+        ps1_0.facility_id,
+        ps1_0.features,
+        ps1_0.floor,
+        ps1_0.hourly_rate,
+        ps1_0.is_available,
+        ps1_0.last_modified,
+        ps1_0.section,
+        ps1_0.slot_number,
+        ps1_0.slot_type 
+    from
+        parking_slot ps1_0
+2025-08-19T11:37:33.293+05:30 DEBUG 13152 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/parkingslots
+2025-08-19T11:37:33.297+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /api/parkingslots
+2025-08-19T11:37:33.302+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:37:33.317+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /api/parkingslots
+2025-08-19T11:37:33.320+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        ps1_0.slot_id,
+        ps1_0.coordinates,
+        ps1_0.created_date,
+        ps1_0.facility_id,
+        ps1_0.features,
+        ps1_0.floor,
+        ps1_0.hourly_rate,
+        ps1_0.is_available,
+        ps1_0.last_modified,
+        ps1_0.section,
+        ps1_0.slot_number,
+        ps1_0.slot_type 
+    from
+        parking_slot ps1_0
+2025-08-19T11:38:03.287+05:30 DEBUG 13152 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/parkingslots
+2025-08-19T11:38:03.287+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /api/parkingslots
+2025-08-19T11:38:03.287+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:38:03.306+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /api/parkingslots
+2025-08-19T11:38:03.308+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        ps1_0.slot_id,
+        ps1_0.coordinates,
+        ps1_0.created_date,
+        ps1_0.facility_id,
+        ps1_0.features,
+        ps1_0.floor,
+        ps1_0.hourly_rate,
+        ps1_0.is_available,
+        ps1_0.last_modified,
+        ps1_0.section,
+        ps1_0.slot_number,
+        ps1_0.slot_type 
+    from
+        parking_slot ps1_0
+2025-08-19T11:38:33.292+05:30 DEBUG 13152 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/parkingslots
+2025-08-19T11:38:33.294+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /api/parkingslots
+2025-08-19T11:38:33.298+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:38:33.310+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /api/parkingslots
+2025-08-19T11:38:33.313+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        ps1_0.slot_id,
+        ps1_0.coordinates,
+        ps1_0.created_date,
+        ps1_0.facility_id,
+        ps1_0.features,
+        ps1_0.floor,
+        ps1_0.hourly_rate,
+        ps1_0.is_available,
+        ps1_0.last_modified,
+        ps1_0.section,
+        ps1_0.slot_number,
+        ps1_0.slot_type 
+    from
+        parking_slot ps1_0
+2025-08-19T11:39:02.892+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/parkingslots
+2025-08-19T11:39:02.892+05:30 DEBUG 13152 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /api/parkingslots
+2025-08-19T11:39:02.892+05:30 DEBUG 13152 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:39:02.912+05:30 DEBUG 13152 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /api/parkingslots
+2025-08-19T11:39:02.916+05:30 DEBUG 13152 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        ps1_0.slot_id,
+        ps1_0.coordinates,
+        ps1_0.created_date,
+        ps1_0.facility_id,
+        ps1_0.features,
+        ps1_0.floor,
+        ps1_0.hourly_rate,
+        ps1_0.is_available,
+        ps1_0.last_modified,
+        ps1_0.section,
+        ps1_0.slot_number,
+        ps1_0.slot_type 
+    from
+        parking_slot ps1_0
+2025-08-19T11:39:32.896+05:30 DEBUG 13152 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/parkingslots
+2025-08-19T11:39:32.900+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /api/parkingslots
+2025-08-19T11:39:32.904+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:39:32.916+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /api/parkingslots
+2025-08-19T11:39:32.919+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        ps1_0.slot_id,
+        ps1_0.coordinates,
+        ps1_0.created_date,
+        ps1_0.facility_id,
+        ps1_0.features,
+        ps1_0.floor,
+        ps1_0.hourly_rate,
+        ps1_0.is_available,
+        ps1_0.last_modified,
+        ps1_0.section,
+        ps1_0.slot_number,
+        ps1_0.slot_type 
+    from
+        parking_slot ps1_0
+2025-08-19T11:40:03.290+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/parkingslots
+2025-08-19T11:40:03.293+05:30 DEBUG 13152 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /api/parkingslots
+2025-08-19T11:40:03.301+05:30 DEBUG 13152 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:40:03.309+05:30 DEBUG 13152 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /api/parkingslots
+2025-08-19T11:40:03.311+05:30 DEBUG 13152 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        ps1_0.slot_id,
+        ps1_0.coordinates,
+        ps1_0.created_date,
+        ps1_0.facility_id,
+        ps1_0.features,
+        ps1_0.floor,
+        ps1_0.hourly_rate,
+        ps1_0.is_available,
+        ps1_0.last_modified,
+        ps1_0.section,
+        ps1_0.slot_number,
+        ps1_0.slot_type 
+    from
+        parking_slot ps1_0
+2025-08-19T11:40:33.299+05:30 DEBUG 13152 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/parkingslots
+2025-08-19T11:40:33.315+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /api/parkingslots
+2025-08-19T11:40:33.322+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:40:33.329+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /api/parkingslots
+2025-08-19T11:40:33.332+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        ps1_0.slot_id,
+        ps1_0.coordinates,
+        ps1_0.created_date,
+        ps1_0.facility_id,
+        ps1_0.features,
+        ps1_0.floor,
+        ps1_0.hourly_rate,
+        ps1_0.is_available,
+        ps1_0.last_modified,
+        ps1_0.section,
+        ps1_0.slot_number,
+        ps1_0.slot_type 
+    from
+        parking_slot ps1_0
+2025-08-19T11:41:08.301+05:30 DEBUG 13152 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/parkingslots
+2025-08-19T11:41:08.301+05:30 DEBUG 13152 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /api/parkingslots
+2025-08-19T11:41:08.321+05:30 DEBUG 13152 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:41:08.328+05:30 DEBUG 13152 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /api/parkingslots
+2025-08-19T11:41:08.330+05:30 DEBUG 13152 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        ps1_0.slot_id,
+        ps1_0.coordinates,
+        ps1_0.created_date,
+        ps1_0.facility_id,
+        ps1_0.features,
+        ps1_0.floor,
+        ps1_0.hourly_rate,
+        ps1_0.is_available,
+        ps1_0.last_modified,
+        ps1_0.section,
+        ps1_0.slot_number,
+        ps1_0.slot_type 
+    from
+        parking_slot ps1_0
+2025-08-19T11:42:08.299+05:30 DEBUG 13152 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/parkingslots
+2025-08-19T11:42:08.303+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /api/parkingslots
+2025-08-19T11:42:08.308+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:42:08.319+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /api/parkingslots
+2025-08-19T11:42:08.322+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        ps1_0.slot_id,
+        ps1_0.coordinates,
+        ps1_0.created_date,
+        ps1_0.facility_id,
+        ps1_0.features,
+        ps1_0.floor,
+        ps1_0.hourly_rate,
+        ps1_0.is_available,
+        ps1_0.last_modified,
+        ps1_0.section,
+        ps1_0.slot_number,
+        ps1_0.slot_type 
+    from
+        parking_slot ps1_0
+2025-08-19T11:43:08.297+05:30 DEBUG 13152 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/parkingslots
+2025-08-19T11:43:08.301+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /api/parkingslots
+2025-08-19T11:43:08.312+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:43:08.326+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /api/parkingslots
+2025-08-19T11:43:08.328+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        ps1_0.slot_id,
+        ps1_0.coordinates,
+        ps1_0.created_date,
+        ps1_0.facility_id,
+        ps1_0.features,
+        ps1_0.floor,
+        ps1_0.hourly_rate,
+        ps1_0.is_available,
+        ps1_0.last_modified,
+        ps1_0.section,
+        ps1_0.slot_number,
+        ps1_0.slot_type 
+    from
+        parking_slot ps1_0
+2025-08-19T11:44:08.294+05:30 DEBUG 13152 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/parkingslots
+2025-08-19T11:44:08.294+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /api/parkingslots
+2025-08-19T11:44:08.316+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:44:08.328+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /api/parkingslots
+2025-08-19T11:44:08.331+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        ps1_0.slot_id,
+        ps1_0.coordinates,
+        ps1_0.created_date,
+        ps1_0.facility_id,
+        ps1_0.features,
+        ps1_0.floor,
+        ps1_0.hourly_rate,
+        ps1_0.is_available,
+        ps1_0.last_modified,
+        ps1_0.section,
+        ps1_0.slot_number,
+        ps1_0.slot_type 
+    from
+        parking_slot ps1_0
+2025-08-19T11:45:08.299+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/parkingslots
+2025-08-19T11:45:08.302+05:30 DEBUG 13152 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /api/parkingslots
+2025-08-19T11:45:08.307+05:30 DEBUG 13152 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:45:08.318+05:30 DEBUG 13152 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /api/parkingslots
+2025-08-19T11:45:08.321+05:30 DEBUG 13152 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        ps1_0.slot_id,
+        ps1_0.coordinates,
+        ps1_0.created_date,
+        ps1_0.facility_id,
+        ps1_0.features,
+        ps1_0.floor,
+        ps1_0.hourly_rate,
+        ps1_0.is_available,
+        ps1_0.last_modified,
+        ps1_0.section,
+        ps1_0.slot_number,
+        ps1_0.slot_type 
+    from
+        parking_slot ps1_0
+2025-08-19T11:46:08.301+05:30 DEBUG 13152 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/parkingslots
+2025-08-19T11:46:08.305+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /api/parkingslots
+2025-08-19T11:46:08.309+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:46:08.321+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /api/parkingslots
+2025-08-19T11:46:08.324+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        ps1_0.slot_id,
+        ps1_0.coordinates,
+        ps1_0.created_date,
+        ps1_0.facility_id,
+        ps1_0.features,
+        ps1_0.floor,
+        ps1_0.hourly_rate,
+        ps1_0.is_available,
+        ps1_0.last_modified,
+        ps1_0.section,
+        ps1_0.slot_number,
+        ps1_0.slot_type 
+    from
+        parking_slot ps1_0
+2025-08-19T11:47:08.293+05:30 DEBUG 13152 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/parkingslots
+2025-08-19T11:47:08.293+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /api/parkingslots
+2025-08-19T11:47:08.293+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:47:08.307+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /api/parkingslots
+2025-08-19T11:47:08.312+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        ps1_0.slot_id,
+        ps1_0.coordinates,
+        ps1_0.created_date,
+        ps1_0.facility_id,
+        ps1_0.features,
+        ps1_0.floor,
+        ps1_0.hourly_rate,
+        ps1_0.is_available,
+        ps1_0.last_modified,
+        ps1_0.section,
+        ps1_0.slot_number,
+        ps1_0.slot_type 
+    from
+        parking_slot ps1_0
+2025-08-19T11:47:23.723+05:30 DEBUG 13152 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /api/auth/validate
+2025-08-19T11:47:23.731+05:30 DEBUG 13152 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:47:23.743+05:30 DEBUG 13152 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /api/auth/validate
+2025-08-19T11:47:23.775+05:30 DEBUG 13152 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /error
+2025-08-19T11:47:23.776+05:30 DEBUG 13152 --- [http-nio-8080-exec-8] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-08-19T11:47:23.778+05:30 DEBUG 13152 --- [http-nio-8080-exec-8] o.s.s.w.a.Http403ForbiddenEntryPoint     : Pre-authenticated entry point called. Rejecting access
+2025-08-19T11:47:23.804+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /api/auth/validate
+2025-08-19T11:47:23.808+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:47:23.824+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /api/auth/validate
+2025-08-19T11:47:23.827+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /error
+2025-08-19T11:47:23.828+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-08-19T11:47:23.829+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] o.s.s.w.a.Http403ForbiddenEntryPoint     : Pre-authenticated entry point called. Rejecting access
+2025-08-19T11:50:18.517+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/auth/login
+2025-08-19T11:50:18.519+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/login
+2025-08-19T11:50:18.519+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-08-19T11:50:18.519+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/login
+2025-08-19T11:50:18.527+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:50:18.630+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2025-08-19T11:50:18.632+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:50:18.642+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    update
+        user 
+    set
+        email=?,
+        email_verified=?,
+        first_name=?,
+        is_active=?,
+        last_login=?,
+        last_name=?,
+        password_hash=?,
+        phone=?,
+        registration_date=?,
+        role=?,
+        username=? 
+    where
+        user_id=?
+2025-08-19T11:50:18.662+05:30  INFO 13152 --- [http-nio-8080-exec-3] c.e.springapp.service.AuditLogService    : Audit Log Created: anonymousUser performed LOGIN on Authentication with severity LOW
+2025-08-19T11:50:18.664+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    insert 
+    into
+        audit_log
+        (action, changes, details, ip_address, resource, session_id, severity, timestamp, user_agent, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-08-19T11:50:18.825+05:30 DEBUG 13152 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/notifications/user/1/unread-count
+2025-08-19T11:50:18.831+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/facilities
+2025-08-19T11:50:18.831+05:30 DEBUG 13152 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/users
+2025-08-19T11:50:18.833+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/facilities
+2025-08-19T11:50:18.832+05:30 DEBUG 13152 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/users
+2025-08-19T11:50:18.843+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /api/notifications/user/1/unread-count
+2025-08-19T11:50:18.847+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /api/users
+2025-08-19T11:50:18.835+05:30 DEBUG 13152 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/bookings
+2025-08-19T11:50:18.835+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/notifications/user/1/unread-count
+2025-08-19T11:50:18.839+05:30 DEBUG 13152 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/bookings
+2025-08-19T11:50:18.846+05:30 DEBUG 13152 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /api/facilities
+2025-08-19T11:50:18.859+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:50:18.860+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:50:18.864+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /api/bookings
+2025-08-19T11:50:18.867+05:30 DEBUG 13152 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:50:18.878+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /api/notifications/user/1/unread-count
+2025-08-19T11:50:18.880+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:50:18.885+05:30 DEBUG 13152 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        count(n1_0.notification_id) 
+    from
+        notification n1_0 
+    left join
+        user u1_0 
+            on u1_0.user_id=n1_0.user_id 
+    where
+        u1_0.user_id=? 
+        and not(n1_0.is_read)
+2025-08-19T11:50:18.886+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /api/users
+2025-08-19T11:50:18.888+05:30 DEBUG 13152 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /api/facilities
+2025-08-19T11:50:18.892+05:30 DEBUG 13152 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0
+2025-08-19T11:50:18.892+05:30 DEBUG 13152 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        f1_0.facility_id,
+        f1_0.address,
+        f1_0.available_slots,
+        f1_0.city,
+        f1_0.contact_info,
+        f1_0.created_date,
+        f1_0.facility_name,
+        f1_0.latitude,
+        f1_0.longitude,
+        f1_0.manager_id,
+        f1_0.operating_hours,
+        f1_0.state,
+        f1_0.total_slots,
+        f1_0.zip_code 
+    from
+        facility f1_0
+2025-08-19T11:50:18.895+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /api/bookings
+2025-08-19T11:50:18.903+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        b1_0.booking_id,
+        b1_0.check_in_time,
+        b1_0.check_out_time,
+        b1_0.created_date,
+        b1_0.end_time,
+        b1_0.extended_time,
+        b1_0.last_modified,
+        b1_0.slot_id,
+        b1_0.start_time,
+        b1_0.status,
+        b1_0.total_cost,
+        b1_0.user_id,
+        b1_0.vehicle_number 
+    from
+        booking b1_0
+2025-08-19T11:50:18.909+05:30 DEBUG 13152 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.user_id=?
+2025-08-19T11:50:18.911+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /api/users
+2025-08-19T11:50:18.911+05:30 DEBUG 13152 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /api/notifications/user/1/unread-count
+2025-08-19T11:50:18.923+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        p1_0.payment_id,
+        p1_0.amount,
+        p1_0.booking_id,
+        b1_0.booking_id,
+        b1_0.check_in_time,
+        b1_0.check_out_time,
+        b1_0.created_date,
+        b1_0.end_time,
+        b1_0.extended_time,
+        b1_0.last_modified,
+        b1_0.slot_id,
+        s1_0.slot_id,
+        s1_0.coordinates,
+        s1_0.created_date,
+        s1_0.facility_id,
+        s1_0.features,
+        s1_0.floor,
+        s1_0.hourly_rate,
+        s1_0.is_available,
+        s1_0.last_modified,
+        s1_0.section,
+        s1_0.slot_number,
+        s1_0.slot_type,
+        b1_0.start_time,
+        b1_0.status,
+        b1_0.total_cost,
+        b1_0.user_id,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username,
+        b1_0.vehicle_number,
+        p1_0.gateway_response,
+        p1_0.payment_date,
+        p1_0.payment_method,
+        p1_0.refund_amount,
+        p1_0.status,
+        p1_0.transaction_id 
+    from
+        payment p1_0 
+    join
+        booking b1_0 
+            on b1_0.booking_id=p1_0.booking_id 
+    left join
+        parking_slot s1_0 
+            on s1_0.slot_id=b1_0.slot_id 
+    left join
+        user u1_0 
+            on u1_0.user_id=b1_0.user_id 
+    where
+        p1_0.booking_id=?
+2025-08-19T11:50:18.926+05:30 DEBUG 13152 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:50:18.926+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:50:18.928+05:30 DEBUG 13152 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /api/facilities
+2025-08-19T11:50:18.946+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        p1_0.payment_id,
+        p1_0.amount,
+        p1_0.booking_id,
+        b1_0.booking_id,
+        b1_0.check_in_time,
+        b1_0.check_out_time,
+        b1_0.created_date,
+        b1_0.end_time,
+        b1_0.extended_time,
+        b1_0.last_modified,
+        b1_0.slot_id,
+        s1_0.slot_id,
+        s1_0.coordinates,
+        s1_0.created_date,
+        s1_0.facility_id,
+        s1_0.features,
+        s1_0.floor,
+        s1_0.hourly_rate,
+        s1_0.is_available,
+        s1_0.last_modified,
+        s1_0.section,
+        s1_0.slot_number,
+        s1_0.slot_type,
+        b1_0.start_time,
+        b1_0.status,
+        b1_0.total_cost,
+        b1_0.user_id,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username,
+        b1_0.vehicle_number,
+        p1_0.gateway_response,
+        p1_0.payment_date,
+        p1_0.payment_method,
+        p1_0.refund_amount,
+        p1_0.status,
+        p1_0.transaction_id 
+    from
+        payment p1_0 
+    join
+        booking b1_0 
+            on b1_0.booking_id=p1_0.booking_id 
+    left join
+        parking_slot s1_0 
+            on s1_0.slot_id=b1_0.slot_id 
+    left join
+        user u1_0 
+            on u1_0.user_id=b1_0.user_id 
+    where
+        p1_0.booking_id=?
+2025-08-19T11:50:18.949+05:30 DEBUG 13152 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /api/notifications/user/1/unread-count
+2025-08-19T11:50:18.952+05:30 DEBUG 13152 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:50:18.953+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /api/users
+2025-08-19T11:50:18.958+05:30 DEBUG 13152 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        count(n1_0.notification_id) 
+    from
+        notification n1_0 
+    left join
+        user u1_0 
+            on u1_0.user_id=n1_0.user_id 
+    where
+        u1_0.user_id=? 
+        and not(n1_0.is_read)
+2025-08-19T11:50:18.963+05:30 DEBUG 13152 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        p1_0.payment_id,
+        p1_0.amount,
+        p1_0.booking_id,
+        b1_0.booking_id,
+        b1_0.check_in_time,
+        b1_0.check_out_time,
+        b1_0.created_date,
+        b1_0.end_time,
+        b1_0.extended_time,
+        b1_0.last_modified,
+        b1_0.slot_id,
+        s1_0.slot_id,
+        s1_0.coordinates,
+        s1_0.created_date,
+        s1_0.facility_id,
+        s1_0.features,
+        s1_0.floor,
+        s1_0.hourly_rate,
+        s1_0.is_available,
+        s1_0.last_modified,
+        s1_0.section,
+        s1_0.slot_number,
+        s1_0.slot_type,
+        b1_0.start_time,
+        b1_0.status,
+        b1_0.total_cost,
+        b1_0.user_id,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username,
+        b1_0.vehicle_number,
+        p1_0.gateway_response,
+        p1_0.payment_date,
+        p1_0.payment_method,
+        p1_0.refund_amount,
+        p1_0.status,
+        p1_0.transaction_id 
+    from
+        payment p1_0 
+    join
+        booking b1_0 
+            on b1_0.booking_id=p1_0.booking_id 
+    left join
+        parking_slot s1_0 
+            on s1_0.slot_id=b1_0.slot_id 
+    left join
+        user u1_0 
+            on u1_0.user_id=b1_0.user_id 
+    where
+        p1_0.booking_id=?
+2025-08-19T11:50:18.964+05:30 DEBUG 13152 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0
+2025-08-19T11:50:18.971+05:30 DEBUG 13152 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /api/facilities
+2025-08-19T11:50:18.982+05:30 DEBUG 13152 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        f1_0.facility_id,
+        f1_0.address,
+        f1_0.available_slots,
+        f1_0.city,
+        f1_0.contact_info,
+        f1_0.created_date,
+        f1_0.facility_name,
+        f1_0.latitude,
+        f1_0.longitude,
+        f1_0.manager_id,
+        f1_0.operating_hours,
+        f1_0.state,
+        f1_0.total_slots,
+        f1_0.zip_code 
+    from
+        facility f1_0
+2025-08-19T11:50:18.990+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /api/bookings
+2025-08-19T11:50:18.992+05:30 DEBUG 13152 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.user_id=?
+2025-08-19T11:50:18.997+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:50:19.010+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /api/bookings
+2025-08-19T11:50:19.013+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        b1_0.booking_id,
+        b1_0.check_in_time,
+        b1_0.check_out_time,
+        b1_0.created_date,
+        b1_0.end_time,
+        b1_0.extended_time,
+        b1_0.last_modified,
+        b1_0.slot_id,
+        b1_0.start_time,
+        b1_0.status,
+        b1_0.total_cost,
+        b1_0.user_id,
+        b1_0.vehicle_number 
+    from
+        booking b1_0
+2025-08-19T11:50:19.019+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        p1_0.payment_id,
+        p1_0.amount,
+        p1_0.booking_id,
+        b1_0.booking_id,
+        b1_0.check_in_time,
+        b1_0.check_out_time,
+        b1_0.created_date,
+        b1_0.end_time,
+        b1_0.extended_time,
+        b1_0.last_modified,
+        b1_0.slot_id,
+        s1_0.slot_id,
+        s1_0.coordinates,
+        s1_0.created_date,
+        s1_0.facility_id,
+        s1_0.features,
+        s1_0.floor,
+        s1_0.hourly_rate,
+        s1_0.is_available,
+        s1_0.last_modified,
+        s1_0.section,
+        s1_0.slot_number,
+        s1_0.slot_type,
+        b1_0.start_time,
+        b1_0.status,
+        b1_0.total_cost,
+        b1_0.user_id,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username,
+        b1_0.vehicle_number,
+        p1_0.gateway_response,
+        p1_0.payment_date,
+        p1_0.payment_method,
+        p1_0.refund_amount,
+        p1_0.status,
+        p1_0.transaction_id 
+    from
+        payment p1_0 
+    join
+        booking b1_0 
+            on b1_0.booking_id=p1_0.booking_id 
+    left join
+        parking_slot s1_0 
+            on s1_0.slot_id=b1_0.slot_id 
+    left join
+        user u1_0 
+            on u1_0.user_id=b1_0.user_id 
+    where
+        p1_0.booking_id=?
+2025-08-19T11:50:19.032+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        p1_0.payment_id,
+        p1_0.amount,
+        p1_0.booking_id,
+        b1_0.booking_id,
+        b1_0.check_in_time,
+        b1_0.check_out_time,
+        b1_0.created_date,
+        b1_0.end_time,
+        b1_0.extended_time,
+        b1_0.last_modified,
+        b1_0.slot_id,
+        s1_0.slot_id,
+        s1_0.coordinates,
+        s1_0.created_date,
+        s1_0.facility_id,
+        s1_0.features,
+        s1_0.floor,
+        s1_0.hourly_rate,
+        s1_0.is_available,
+        s1_0.last_modified,
+        s1_0.section,
+        s1_0.slot_number,
+        s1_0.slot_type,
+        b1_0.start_time,
+        b1_0.status,
+        b1_0.total_cost,
+        b1_0.user_id,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username,
+        b1_0.vehicle_number,
+        p1_0.gateway_response,
+        p1_0.payment_date,
+        p1_0.payment_method,
+        p1_0.refund_amount,
+        p1_0.status,
+        p1_0.transaction_id 
+    from
+        payment p1_0 
+    join
+        booking b1_0 
+            on b1_0.booking_id=p1_0.booking_id 
+    left join
+        parking_slot s1_0 
+            on s1_0.slot_id=b1_0.slot_id 
+    left join
+        user u1_0 
+            on u1_0.user_id=b1_0.user_id 
+    where
+        p1_0.booking_id=?
+2025-08-19T11:50:19.047+05:30 DEBUG 13152 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        p1_0.payment_id,
+        p1_0.amount,
+        p1_0.booking_id,
+        b1_0.booking_id,
+        b1_0.check_in_time,
+        b1_0.check_out_time,
+        b1_0.created_date,
+        b1_0.end_time,
+        b1_0.extended_time,
+        b1_0.last_modified,
+        b1_0.slot_id,
+        s1_0.slot_id,
+        s1_0.coordinates,
+        s1_0.created_date,
+        s1_0.facility_id,
+        s1_0.features,
+        s1_0.floor,
+        s1_0.hourly_rate,
+        s1_0.is_available,
+        s1_0.last_modified,
+        s1_0.section,
+        s1_0.slot_number,
+        s1_0.slot_type,
+        b1_0.start_time,
+        b1_0.status,
+        b1_0.total_cost,
+        b1_0.user_id,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username,
+        b1_0.vehicle_number,
+        p1_0.gateway_response,
+        p1_0.payment_date,
+        p1_0.payment_method,
+        p1_0.refund_amount,
+        p1_0.status,
+        p1_0.transaction_id 
+    from
+        payment p1_0 
+    join
+        booking b1_0 
+            on b1_0.booking_id=p1_0.booking_id 
+    left join
+        parking_slot s1_0 
+            on s1_0.slot_id=b1_0.slot_id 
+    left join
+        user u1_0 
+            on u1_0.user_id=b1_0.user_id 
+    where
+        p1_0.booking_id=?
+2025-08-19T11:50:22.152+05:30 DEBUG 13152 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /api/auth/validate
+2025-08-19T11:50:22.158+05:30 DEBUG 13152 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:50:22.171+05:30 DEBUG 13152 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Secured GET /api/auth/validate
+2025-08-19T11:50:22.176+05:30 DEBUG 13152 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /error
+2025-08-19T11:50:22.176+05:30 DEBUG 13152 --- [http-nio-8080-exec-7] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-08-19T11:50:22.177+05:30 DEBUG 13152 --- [http-nio-8080-exec-7] o.s.s.w.a.Http403ForbiddenEntryPoint     : Pre-authenticated entry point called. Rejecting access
+2025-08-19T11:50:22.190+05:30 DEBUG 13152 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /api/auth/validate
+2025-08-19T11:50:22.203+05:30 DEBUG 13152 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.email_verified,
+        u1_0.first_name,
+        u1_0.is_active,
+        u1_0.last_login,
+        u1_0.last_name,
+        u1_0.password_hash,
+        u1_0.phone,
+        u1_0.registration_date,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-08-19T11:50:22.224+05:30 DEBUG 13152 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /api/auth/validate
+2025-08-19T11:50:22.227+05:30 DEBUG 13152 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /error
+2025-08-19T11:50:22.228+05:30 DEBUG 13152 --- [http-nio-8080-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-08-19T11:50:22.229+05:30 DEBUG 13152 --- [http-nio-8080-exec-4] o.s.s.w.a.Http403ForbiddenEntryPoint     : Pre-authenticated entry point called. Rejecting access
