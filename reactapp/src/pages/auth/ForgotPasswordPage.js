@@ -55,7 +55,6 @@ const ForgotPasswordPage = () => {
         throw new Error('Passwords do not match');
       }
 
-      // Find user by email (better to have a backend endpoint `updateByEmail`)
       const res = await userAPI.getAll();
       const user = res.data.find((u) => u.email === email);
 
@@ -63,7 +62,8 @@ const ForgotPasswordPage = () => {
         throw new Error('User not found');
       }
 
-      await userAPI.update(user.id, { ...user, password });
+      console.log(user.userId);
+      await userAPI.update(user.userId, { ...user, password });
       toast.success('Password reset successful! Please login with your new password.');
       navigate('/login');
     } catch (err) {
@@ -75,7 +75,6 @@ const ForgotPasswordPage = () => {
     }
   };
 
-  // Form fields
   const emailFields = [
     { name: 'email', label: 'Email Address', type: 'email', required: true },
   ];
