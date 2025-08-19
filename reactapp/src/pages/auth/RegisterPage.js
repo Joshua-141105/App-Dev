@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useNavigate, Navigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import AuthForm from '../../components/auth/AuthForm';
-import { useAuth } from '../../App';
+import { useAuth } from '../../context/AuthContext';
 import { authAPI } from '../../utils/api';
 import { storeUser } from '../../utils/auth';
 
@@ -18,37 +18,42 @@ const RegisterPage = () => {
   }
 
   const handleRegister = async (formData) => {
-    if (formData.password !== formData.confirmPassword) {
-      setError('Passwords do not match');
-      toast.error('Passwords do not match');
-      return;
-    }
+  if (formData.password !== formData.confirmPassword) {
+    setError('Passwords do not match');
+    toast.error('Passwords do not match');
+    return;
+  }
 
-    setLoading(true);
-    setError(null);
+  setLoading(true);
+  setError(null);
 
-    try {
-      const response = await authAPI.register({
+  const controller = new AbortController(); 
+  try {
+    const response = await authAPI.register(
+      {
         username: formData.username,
         email: formData.email,
         password: formData.password,
         firstName: formData.firstName,
         lastName: formData.lastName,
         phone: formData.phone,
-      });
+      },
+      controller.signal 
+    );
 
-      const userData = storeUser(response.data.token);
-      login(userData);
-      toast.success('Registration successful!');
-      navigate('/dashboard');
-    } catch (err) {
-      const errorMessage = err.response?.data?.message || 'Registration failed';
-      setError(errorMessage);
-      toast.error(errorMessage);
-    } finally {
-      setLoading(false);
-    }
-  };
+    const userData = storeUser(response.data.token);
+    login(userData);
+    toast.success('Registration successful!');
+    navigate('/dashboard');
+  } catch (err) {
+    const errorMessage = err.response?.data?.message || 'Registration failed';
+    setError(errorMessage);
+    console.error('Registration error:', err);
+    toast.error(errorMessage);
+  } finally {
+    setLoading(false);
+  }
+};
 
   const fields = [
     {

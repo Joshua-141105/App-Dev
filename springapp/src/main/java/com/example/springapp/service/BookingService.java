@@ -48,8 +48,9 @@ public class BookingService {
                 .orElseThrow(() -> new RuntimeException("User not found"));
         ParkingSlot slot = slotRepository.findById(dto.getSlotId())
                 .orElseThrow(() -> new RuntimeException("Slot not found"));
+                slot.setAvailable(false); // Mark slot as booked
+        slotRepository.save(slot);
         Payment payment = dto.getPaymentId() != null ? paymentRepository.findById(dto.getPaymentId()).orElse(null) : null;
-
         Booking booking = BookingMapper.toEntity(dto, user, slot, payment);
         return BookingMapper.toDTO(bookingRepository.save(booking));
     }

@@ -19,7 +19,8 @@ import {
   Brightness7,
   MenuOpen,
 } from '@mui/icons-material';
-import { useAuth, useTheme } from '../../App';
+import { useTheme } from '../../context/ThemeProvider';
+import { useAuth } from '../../context/AuthContext';
 import { notificationAPI } from '../../utils/api';
 import { toast } from 'react-toastify';
 

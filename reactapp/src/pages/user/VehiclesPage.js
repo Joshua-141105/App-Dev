@@ -33,7 +33,7 @@ import {
 } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import { vehicleAPI } from '../../utils/api';
-import { useAuth } from '../../App';
+import { useAuth } from '../../context/AuthContext';
 import { toast } from 'react-toastify';
 
 const VehicleForm = ({ open, onClose, vehicle, onSave }) => {

@@ -35,7 +35,7 @@ import {
 } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import { bookingAPI, parkingSlotAPI } from '../../utils/api';
-import { useAuth } from '../../App';
+import { useAuth } from '../../context/AuthContext';
 import { toast } from 'react-toastify';
 import dayjs from 'dayjs';
 

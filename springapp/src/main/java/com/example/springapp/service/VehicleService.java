@@ -52,7 +52,7 @@ public class VehicleService {
 
         existingVehicle.setUser(user);
         existingVehicle.setLicensePlate(dto.getLicensePlate());
-        existingVehicle.setVehicleType(dto.getVehicleType());
+        existingVehicle.setVehicleType(Vehicle.VehicleType.valueOf(dto.getVehicleType()));
         existingVehicle.setMake(dto.getMake());
         existingVehicle.setModel(dto.getModel());
         existingVehicle.setColor(dto.getColor());

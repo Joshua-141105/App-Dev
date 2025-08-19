@@ -42,10 +42,10 @@ public class SecurityConfig {
             .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers(
-                    "/api/auth/**",
+                    "/api/**",
                     "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html"
                 ).permitAll()
-                .requestMatchers("/api/admin/**").hasRole("SYSTEM_ADMIN")
+                .requestMatchers("/api/**").hasRole("SYSTEM_ADMIN")
                 .requestMatchers("/api/manager/**").hasAnyRole("FACILITY_MANAGER","SYSTEM_ADMIN")
                 .anyRequest().authenticated()
             )

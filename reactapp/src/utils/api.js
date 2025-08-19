@@ -1,4 +1,3 @@
-
 // utils/api.js
 import axios from 'axios';
 import { getStoredUser, removeStoredUser } from './auth';
@@ -16,18 +15,16 @@ const api = axios.create({
 // Request interceptor to add auth token
 api.interceptors.request.use(
   (config) => {
-    const user = getStoredUser();
-    if (user && user.token) {
-      config.headers.Authorization = `Bearer ${user.token}`;
+    const token = localStorage.getItem('authToken');
+    if (token && !config.url.includes('/auth/')) {
+      config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
   },
-  (error) => {
-    return Promise.reject(error);
-  }
+  (error) => Promise.reject(error)
 );
 
-// Response interceptor to handle auth errors
+// Response interceptor for 401 Unauthorized
 api.interceptors.response.use(
   (response) => response,
   (error) => {
@@ -39,96 +36,99 @@ api.interceptors.response.use(
   }
 );
 
-// Auth API
+// Helper to optionally include signal
+const withSignal = (signal) => (signal ? { signal } : {});
+
+// -------- Auth API --------
 export const authAPI = {
-  login: (credentials) => api.post('/auth/login', credentials),
-  register: (userData) => api.post('/auth/register', userData),
-  me: () => api.get('/auth/me'),
+  login: (credentials, signal) => api.post('/auth/login', credentials, withSignal(signal)),
+  register: (userData, signal) => api.post('/auth/register', userData, withSignal(signal)),
+  me: (signal) => api.get('/auth/me', withSignal(signal)),
 };
 
-// User API
+// -------- User API --------
 export const userAPI = {
-  getAll: () => api.get('/users'),
-  getById: (id) => api.get(`/users/${id}`),
-  create: (userData) => api.post('/users', userData),
-  update: (id, userData) => api.put(`/users/${id}`, userData),
-  delete: (id) => api.delete(`/users/${id}`),
+  getAll: (signal) => api.get('/users', withSignal(signal)),
+  getById: (id, signal) => api.get(`/users/${id}`, withSignal(signal)),
+  create: (userData, signal) => api.post('/users', userData, withSignal(signal)),
+  update: (id, userData, signal) => api.put(`/users/${id}`, userData, withSignal(signal)),
+  delete: (id, signal) => api.delete(`/users/${id}`, withSignal(signal)),
 };
 
-// Parking Slot API
+// -------- Parking Slot API --------
 export const parkingSlotAPI = {
-  getAll: () => api.get('/parkingslots'),
-  getById: (id) => api.get(`/parkingslots/${id}`),
-  create: (slotData) => api.post('/parkingslots', slotData),
-  update: (id, slotData) => api.put(`/parkingslots/${id}`, slotData),
-  delete: (id) => api.delete(`/parkingslots/${id}`),
+  getAll: (signal) => api.get('/parkingslots', withSignal(signal)),
+  getById: (id, signal) => api.get(`/parkingslots/${id}`, withSignal(signal)),
+  create: (slotData, signal) => api.post('/parkingslots', slotData, withSignal(signal)),
+  update: (id, slotData, signal) => api.put(`/parkingslots/${id}`, slotData, withSignal(signal)),
+  delete: (id, signal) => api.delete(`/parkingslots/${id}`, withSignal(signal)),
 };
 
-// Booking API
+// -------- Booking API --------
 export const bookingAPI = {
-  getAll: () => api.get('/bookings'),
-  getById: (id) => api.get(`/bookings/${id}`),
-  create: (bookingData) => api.post('/bookings', bookingData),
-  update: (id, bookingData) => api.put(`/bookings/${id}`, bookingData),
-  delete: (id) => api.delete(`/bookings/${id}`),
+  getAll: (signal) => api.get('/bookings', withSignal(signal)),
+  getById: (id, signal) => api.get(`/bookings/${id}`, withSignal(signal)),
+  create: (bookingData, signal) => api.post('/bookings', bookingData, withSignal(signal)),
+  update: (id, bookingData, signal) => api.put(`/bookings/${id}`, bookingData, withSignal(signal)),
+  delete: (id, signal) => api.delete(`/bookings/${id}`, withSignal(signal)),
 };
 
-// Vehicle API
+// -------- Vehicle API --------
 export const vehicleAPI = {
-  getAll: () => api.get('/vehicles'),
-  getById: (id) => api.get(`/vehicles/${id}`),
-  create: (vehicleData) => api.post('/vehicles', vehicleData),
-  update: (id, vehicleData) => api.put(`/vehicles/${id}`, vehicleData),
-  delete: (id) => api.delete(`/vehicles/${id}`),
+  getAll: (signal) => api.get('/vehicles', withSignal(signal)),
+  getById: (id, signal) => api.get(`/vehicles/${id}`, withSignal(signal)),
+  create: (vehicleData, signal) => api.post('/vehicles', vehicleData, withSignal(signal)),
+  update: (id, vehicleData, signal) => api.put(`/vehicles/${id}`, vehicleData, withSignal(signal)),
+  delete: (id, signal) => api.delete(`/vehicles/${id}`, withSignal(signal)),
 };
 
-// Payment API
+// -------- Payment API --------
 export const paymentAPI = {
-  getAll: () => api.get('/payments'),
-  getById: (id) => api.get(`/payments/${id}`),
-  create: (paymentData) => api.post('/payments', paymentData),
-  update: (id, paymentData) => api.put(`/payments/${id}`, paymentData),
-  delete: (id) => api.delete(`/payments/${id}`),
+  getAll: (signal) => api.get('/payments', withSignal(signal)),
+  getById: (id, signal) => api.get(`/payments/${id}`, withSignal(signal)),
+  create: (paymentData, signal) => api.post('/payments', paymentData, withSignal(signal)),
+  update: (id, paymentData, signal) => api.put(`/payments/${id}`, paymentData, withSignal(signal)),
+  delete: (id, signal) => api.delete(`/payments/${id}`, withSignal(signal)),
 };
 
-// Notification API
+// -------- Notification API --------
 export const notificationAPI = {
-  getAll: () => api.get('/notifications'),
-  getById: (id) => api.get(`/notifications/${id}`),
-  create: (notificationData) => api.post('/notifications', notificationData),
-  update: (id, notificationData) => api.put(`/notifications/${id}`, notificationData),
-  delete: (id) => api.delete(`/notifications/${id}`),
-  getByUser: (userId) => api.get(`/notifications/user/${userId}`),
-  getUnreadByUser: (userId) => api.get(`/notifications/user/${userId}/unread`),
-  markAsRead: (id) => api.put(`/notifications/${id}/mark-read`),
-  markAllAsRead: (userId) => api.put(`/notifications/user/${userId}/mark-all-read`),
-  getUnreadCount: (userId) => api.get(`/notifications/user/${userId}/unread-count`),
+  getAll: (signal) => api.get('/notifications', withSignal(signal)),
+  getById: (id, signal) => api.get(`/notifications/${id}`, withSignal(signal)),
+  create: (notificationData, signal) => api.post('/notifications', notificationData, withSignal(signal)),
+  update: (id, notificationData, signal) => api.put(`/notifications/${id}`, notificationData, withSignal(signal)),
+  delete: (id, signal) => api.delete(`/notifications/${id}`, withSignal(signal)),
+  getByUser: (userId, signal) => api.get(`/notifications/user/${userId}`, withSignal(signal)),
+  getUnreadByUser: (userId, signal) => api.get(`/notifications/user/${userId}/unread`, withSignal(signal)),
+  markAsRead: (id, signal) => api.put(`/notifications/${id}/mark-read`, null, withSignal(signal)),
+  markAllAsRead: (userId, signal) => api.put(`/notifications/user/${userId}/mark-all-read`, null, withSignal(signal)),
+  getUnreadCount: (userId, signal) => api.get(`/notifications/user/${userId}/unread-count`, withSignal(signal)),
 };
 
-// Facility API
+// -------- Facility API --------
 export const facilityAPI = {
-  getAll: () => api.get('/facilities'),
-  getById: (id) => api.get(`/facilities/${id}`),
-  create: (facilityData) => api.post('/facilities', facilityData),
-  update: (id, facilityData) => api.put(`/facilities/${id}`, facilityData),
-  delete: (id) => api.delete(`/facilities/${id}`),
+  getAll: (signal) => api.get('/facilities', withSignal(signal)),
+  getById: (id, signal) => api.get(`/facilities/${id}`, withSignal(signal)),
+  create: (facilityData, signal) => api.post('/facilities', facilityData, withSignal(signal)),
+  update: (id, facilityData, signal) => api.put(`/facilities/${id}`, facilityData, withSignal(signal)),
+  delete: (id, signal) => api.delete(`/facilities/${id}`, withSignal(signal)),
 };
 
-// Analytics API
+// -------- Analytics API --------
 export const analyticsAPI = {
-  getAll: () => api.get('/facilityanalytics'),
-  getById: (id) => api.get(`/facilityanalytics/${id}`),
-  create: (analyticsData) => api.post('/facilityanalytics', analyticsData),
-  update: (id, analyticsData) => api.put(`/facilityanalytics/${id}`, analyticsData),
-  delete: (id) => api.delete(`/facilityanalytics/${id}`),
+  getAll: (signal) => api.get('/facilityanalytics', withSignal(signal)),
+  getById: (id, signal) => api.get(`/facilityanalytics/${id}`, withSignal(signal)),
+  create: (analyticsData, signal) => api.post('/facilityanalytics', analyticsData, withSignal(signal)),
+  update: (id, analyticsData, signal) => api.put(`/facilityanalytics/${id}`, analyticsData, withSignal(signal)),
+  delete: (id, signal) => api.delete(`/facilityanalytics/${id}`, withSignal(signal)),
 };
 
-// Booking History API
+// -------- Booking History API --------
 export const bookingHistoryAPI = {
-  getAll: () => api.get('/booking-histories'),
-  getById: (id) => api.get(`/booking-histories/${id}`),
-  create: (historyData) => api.post('/booking-histories', historyData),
-  delete: (id) => api.delete(`/booking-histories/${id}`),
+  getAll: (signal) => api.get('/booking-histories', withSignal(signal)),
+  getById: (id, signal) => api.get(`/booking-histories/${id}`, withSignal(signal)),
+  create: (historyData, signal) => api.post('/booking-histories', historyData, withSignal(signal)),
+  delete: (id, signal) => api.delete(`/booking-histories/${id}`, withSignal(signal)),
 };
 
 export default api;

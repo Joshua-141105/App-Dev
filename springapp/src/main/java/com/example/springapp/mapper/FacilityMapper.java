@@ -20,7 +20,7 @@ public class FacilityMapper {
         dto.setContactInfo(facility.getContactInfo());
         dto.setLatitude(facility.getLatitude());
         dto.setLongitude(facility.getLongitude());
-        dto.setManagerId(facility.getManager() != null ? facility.getManager().getId() : null);
+        dto.setManagerId(facility.getManager() != null ? facility.getManager().getUserId() : null);
         return dto;
     }
 

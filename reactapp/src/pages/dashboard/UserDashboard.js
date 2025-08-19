@@ -23,7 +23,7 @@ import {
 } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../App';
+import { useAuth } from '../../context/AuthContext';
 import { bookingAPI, vehicleAPI, parkingSlotAPI } from '../../utils/api';
 
 const UserDashboard = () => {

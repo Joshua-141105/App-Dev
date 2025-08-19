@@ -16,7 +16,7 @@ import {
 import { Person, Email, Phone, Badge } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import { userAPI } from '../../utils/api';
-import { useAuth } from '../../App';
+import { useAuth } from '../../context/AuthContext';
 import { toast } from 'react-toastify';
 
 const ProfileForm = ({ user, onSave }) => {
@@ -139,6 +139,7 @@ const ProfilePage = () => {
 
   const fetchUserProfile = async () => {
     try {
+      console.log(authUser);
       const response = await userAPI.getById(authUser.id);
       setUserProfile(response.data);
     } catch (error) {

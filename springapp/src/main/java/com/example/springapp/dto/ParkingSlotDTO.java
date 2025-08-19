@@ -1,5 +1,6 @@
 package com.example.springapp.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import java.sql.Timestamp;
 
@@ -10,6 +11,7 @@ public class ParkingSlotDTO {
     private String slotType;
     private Long facilityId;
     private double hourlyRate;
+    @JsonProperty("isAvailable")
     private boolean isAvailable;
     private String location;
     private int floor;

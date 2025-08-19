@@ -49,88 +49,8 @@ import AdminDashboard from './pages/dashboard/AdminDashboard';
 
 // Utils
 import { getStoredUser, removeStoredUser } from './utils/auth';
-
-// Auth Provider
-export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const AuthContext = createContext();
-  const ThemeContext = createContext();
-  
-  useEffect(() => {
-    const storedUser = getStoredUser();
-    if (storedUser) {
-      setUser(storedUser);
-    }
-    setLoading(false);
-  }, []);
-
-  const login = (userData) => {
-    setUser(userData);
-  };
-
-  const logout = () => {
-    setUser(null);
-    removeStoredUser();
-  };
-
-  const value = {
-    user,
-    login,
-    logout,
-    loading
-  };
-
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
-};
-
-export const useAuth = () => {
-  return useContext(AuthContext);
-};
-
-// Theme Provider
-export const AppThemeProvider = ({ children }) => {
-  const [darkMode, setDarkMode] = useState(() => {
-    const saved = localStorage.getItem('darkMode');
-    return saved ? JSON.parse(saved) : false;
-  });
-
-  const theme = createTheme({
-    palette: {
-      mode: darkMode ? 'dark' : 'light',
-      primary: {
-        main: '#1976d2',
-        dark: '#115293',
-      },
-      secondary: {
-        main: '#dc004e',
-      },
-    },
-  });
-
-  const toggleTheme = () => {
-    setDarkMode(!darkMode);
-    localStorage.setItem('darkMode', JSON.stringify(!darkMode));
-  };
-
-  const value = {
-    darkMode,
-    toggleTheme
-  };
-
-  return (
-    <ThemeContext.Provider value={value}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        {children}
-      </ThemeProvider>
-    </ThemeContext.Provider>
-  );
-};
-
-export const useTheme = () => {
-  return useContext(ThemeContext);
-};
+import { AuthProvider, useAuth } from './context/AuthContext';
+import {CustomThemeProvider as AppThemeProvider} from './context/ThemeProvider';
 
 function App() {
   return (
@@ -179,7 +99,6 @@ const MainLayout = () => {
   return (
     <DashboardLayout>
       <Routes>
-        {/* Dashboard Routes */}
         <Route path="/" element={<Navigate to="/dashboard" replace />} />
         <Route 
           path="/dashboard" 
@@ -191,8 +110,6 @@ const MainLayout = () => {
             <UserDashboard />
           } 
         />
-
-        {/* User Routes */}
         <Route path="/slots" element={<SlotAvailabilityPage />} />
         <Route path="/book-slot" element={<BookingFormPage />} />
         <Route path="/my-bookings" element={<MyBookingsPage />} />
@@ -202,7 +119,6 @@ const MainLayout = () => {
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/notifications" element={<NotificationsPage />} />
 
-        {/* Manager Routes */}
         <Route 
           path="/slot-management" 
           element={
@@ -236,7 +152,6 @@ const MainLayout = () => {
           } 
         />
 
-        {/* Admin Routes */}
         <Route 
           path="/user-management" 
           element={

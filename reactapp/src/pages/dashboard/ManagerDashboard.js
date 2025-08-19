@@ -19,7 +19,7 @@ import {
 } from '@mui/icons-material';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { motion } from 'framer-motion';
-import { useAuth } from '../../App';
+import { useAuth } from '../../context/AuthContext';
 import { analyticsAPI, bookingAPI, parkingSlotAPI } from '../../utils/api';
 
 const ManagerDashboard = () => {

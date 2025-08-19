@@ -163,6 +163,7 @@ const SlotAvailabilityPage = () => {
   const fetchFacilities = async () => {
     try {
       const response = await facilityAPI.getAll();
+      console.log('Facilities:', response.data);
       setFacilities(response.data);
     } catch (error) {
       console.error('Error fetching facilities:', error);
@@ -171,7 +172,7 @@ const SlotAvailabilityPage = () => {
 
   const applyFilters = () => {
     let filtered = [...slots];
-
+    console.log('Slots:', slots);
     if (filters.facility) {
       filtered = filtered.filter(slot => slot.facilityId === parseInt(filters.facility));
     }

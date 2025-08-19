@@ -6,7 +6,7 @@ import com.example.springapp.model.User;
 import com.example.springapp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import org.springframework.security.crypto.password.PasswordEncoder;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -16,6 +16,12 @@ public class UserService {
 
     @Autowired
     private UserRepository repository;
+
+    private final PasswordEncoder passwordEncoder;
+
+    public UserService(PasswordEncoder passwordEncoder) {
+        this.passwordEncoder = passwordEncoder;
+    }
 
     public List<UserDTO> getAll() {
         return repository.findAll()
@@ -31,7 +37,9 @@ public class UserService {
 
     public UserDTO save(UserDTO dto) {
         User user = UserMapper.toEntity(dto);
+        user.setPasswordHash(passwordEncoder.encode("123456")); // Ensure password is encoded
         // passwordHash handling here if needed
+        user.setActive(true);
         User saved = repository.save(user);
         return UserMapper.toDTO(saved);
     }

@@ -36,7 +36,7 @@ import {
 } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import { notificationAPI } from '../../utils/api';
-import { useAuth } from '../../App';
+import { useAuth } from '../../context/AuthContext';
 import { toast } from 'react-toastify';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';

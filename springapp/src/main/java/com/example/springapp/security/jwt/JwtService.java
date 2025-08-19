@@ -25,11 +25,12 @@ public class JwtService {
         this.issuer = issuer;
     }
 
-    public String generateToken(String subject, String role) {
+    public String generateToken(Long id,String subject, String role) {
         long now = System.currentTimeMillis();
         return Jwts.builder()
                 .setSubject(subject)
                 .claim("role", role)
+                .claim("id", id)
                 .setIssuer(issuer)
                 .setIssuedAt(new Date(now))
                 .setExpiration(new Date(now + expirationMs))

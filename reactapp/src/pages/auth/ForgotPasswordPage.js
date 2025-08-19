@@ -3,12 +3,14 @@ import React, { useState } from 'react';
 import { useNavigate, Navigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import AuthForm from '../../components/auth/AuthForm';
-import { useAuth } from '../../App';
+import { useAuth } from '../../context/AuthContext';
+import { userAPI } from '../../utils/api';
 
 const ForgotPasswordPage = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(false);
+  const [step, setStep] = useState(1); // 1 = email input, 2 = password input
+  const [email, setEmail] = useState('');
   const navigate = useNavigate();
   const { user } = useAuth();
 
@@ -16,18 +18,25 @@ const ForgotPasswordPage = () => {
     return <Navigate to="/dashboard" replace />;
   }
 
-  const handleForgotPassword = async (formData) => {
+  // Step 1: Verify email exists
+  const handleVerifyEmail = async (formData) => {
     setLoading(true);
     setError(null);
 
     try {
-      // Mock forgot password API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      setSuccess(true);
-      toast.success('Password reset instructions sent to your email!');
-      setTimeout(() => navigate('/login'), 3000);
+      const { email } = formData;
+      const res = await userAPI.getAll(); // fetch all users (or you can create an API `getByEmail`)
+      const userExists = res.data.find((u) => u.email === email);
+
+      if (!userExists) {
+        throw new Error('No account found with this email');
+      }
+
+      setEmail(email);
+      setStep(2);
+      toast.success('Email verified! Please enter your new password.');
     } catch (err) {
-      const errorMessage = 'Failed to send reset email';
+      const errorMessage = err.message || 'Failed to verify email';
       setError(errorMessage);
       toast.error(errorMessage);
     } finally {
@@ -35,38 +44,54 @@ const ForgotPasswordPage = () => {
     }
   };
 
-  if (success) {
-    return (
-      <AuthForm
-        title="Check Your Email"
-        fields={[]}
-        onSubmit={() => {}}
-        submitText=""
-        links={[{ text: 'Back to Login', href: '/login' }]}
-      />
-    );
-  }
+  // Step 2: Reset password
+  const handleResetPassword = async (formData) => {
+    setLoading(true);
+    setError(null);
 
-  const fields = [
-    {
-      name: 'email',
-      label: 'Email Address',
-      type: 'email',
-      required: true,
-    },
+    try {
+      const { password, confirmPassword } = formData;
+      if (password !== confirmPassword) {
+        throw new Error('Passwords do not match');
+      }
+
+      // Find user by email (better to have a backend endpoint `updateByEmail`)
+      const res = await userAPI.getAll();
+      const user = res.data.find((u) => u.email === email);
+
+      if (!user) {
+        throw new Error('User not found');
+      }
+
+      await userAPI.update(user.id, { ...user, password });
+      toast.success('Password reset successful! Please login with your new password.');
+      navigate('/login');
+    } catch (err) {
+      const errorMessage = err.message || 'Failed to reset password';
+      setError(errorMessage);
+      toast.error(errorMessage);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Form fields
+  const emailFields = [
+    { name: 'email', label: 'Email Address', type: 'email', required: true },
   ];
 
-  const links = [
-    { text: 'Back to Login', href: '/login' },
+  const passwordFields = [
+    { name: 'password', label: 'New Password', type: 'password', required: true },
+    { name: 'confirmPassword', label: 'Confirm Password', type: 'password', required: true },
   ];
 
   return (
     <AuthForm
-      title="Forgot Password"
-      fields={fields}
-      onSubmit={handleForgotPassword}
-      submitText="Send Reset Link"
-      links={links}
+      title={step === 1 ? 'Forgot Password' : 'Reset Password'}
+      fields={step === 1 ? emailFields : passwordFields}
+      onSubmit={step === 1 ? handleVerifyEmail : handleResetPassword}
+      submitText={step === 1 ? 'Verify Email' : 'Reset Password'}
+      links={[{ text: 'Back to Login', href: '/login' }]}
       loading={loading}
       error={error}
     />

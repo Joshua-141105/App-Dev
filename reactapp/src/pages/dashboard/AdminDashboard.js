@@ -27,7 +27,7 @@ import {
 } from '@mui/icons-material';
 import { PieChart, Pie, Cell, ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 import { motion } from 'framer-motion';
-import { useAuth } from '../../App';
+import { useAuth } from '../../context/AuthContext';
 import { userAPI, facilityAPI, bookingAPI } from '../../utils/api';
 
 const AdminDashboard = () => {

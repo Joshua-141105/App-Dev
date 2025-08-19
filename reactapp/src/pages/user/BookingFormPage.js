@@ -25,7 +25,7 @@ import dayjs from 'dayjs';
 import { motion } from 'framer-motion';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { vehicleAPI, bookingAPI, paymentAPI } from '../../utils/api';
-import { useAuth } from '../../App';
+import { useAuth } from '../../context/AuthContext';
 import { toast } from 'react-toastify';
 
 const BookingFormPage = () => {

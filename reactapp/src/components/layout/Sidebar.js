@@ -31,7 +31,7 @@ import {
   PriceChange,
 } from '@mui/icons-material';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useAuth } from '../../App';
+import { useAuth } from '../../context/AuthContext';
 
 const drawerWidth = 240;
 const Sidebar = ({ mobileOpen, onMobileClose }) => {

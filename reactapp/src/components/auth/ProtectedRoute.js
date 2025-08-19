@@ -1,7 +1,6 @@
-// components/auth/ProtectedRoute.js
 import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import { useAuth } from '../../../contexts/AuthContext';
+import { useAuth } from '../../context/AuthContext';
 import { Box, CircularProgress, Typography, Alert } from '@mui/material';
 import { motion } from 'framer-motion';
 
@@ -15,7 +14,6 @@ const ProtectedRoute = ({
   const { isAuthenticated, isLoading, user, hasRole, hasPermission } = useAuth();
   const location = useLocation();
 
-  // Show loading spinner while auth is being initialized
   if (isLoading && showLoading) {
     return (
       <Box
@@ -40,12 +38,10 @@ const ProtectedRoute = ({
     );
   }
 
-  // Redirect to login if not authenticated
   if (!isAuthenticated) {
     return <Navigate to={fallbackPath} state={{ from: location }} replace />;
   }
 
-  // Check role-based access
   if (requiredRole && !hasRole(requiredRole)) {
     return (
       <Box sx={{ p: 3 }}>
@@ -69,7 +65,6 @@ const ProtectedRoute = ({
     );
   }
 
-  // Check permission-based access
   if (requiredPermission && !hasPermission(requiredPermission)) {
     return (
       <Box sx={{ p: 3 }}>
@@ -87,11 +82,9 @@ const ProtectedRoute = ({
     );
   }
 
-  // Render the protected component
   return <>{children}</>;
 };
 
-// Higher-order component for role-based protection
 export const withRoleProtection = (Component, requiredRole) => {
   return function ProtectedComponent(props) {
     return (
@@ -102,7 +95,6 @@ export const withRoleProtection = (Component, requiredRole) => {
   };
 };
 
-// Higher-order component for permission-based protection
 export const withPermissionProtection = (Component, requiredPermission) => {
   return function ProtectedComponent(props) {
     return (
@@ -113,7 +105,6 @@ export const withPermissionProtection = (Component, requiredPermission) => {
   };
 };
 
-// Admin-only route protection
 export const AdminRoute = ({ children }) => (
   <ProtectedRoute requiredRole="SYSTEM_ADMIN">
     {children}

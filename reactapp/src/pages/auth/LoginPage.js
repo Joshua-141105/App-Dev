@@ -1,9 +1,8 @@
-// pages/auth/LoginPage.js
 import React, { useState } from 'react';
 import { useNavigate, Navigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import AuthForm from '../../components/auth/AuthForm';
-import { useAuth } from '../../App';
+import { useAuth } from '../../context/AuthContext';
 import { authAPI } from '../../utils/api';
 import { storeUser } from '../../utils/auth';
 
@@ -18,27 +17,35 @@ const LoginPage = () => {
   }
 
   const handleLogin = async (formData) => {
-    setLoading(true);
-    setError(null);
+  setLoading(true);
+  setError(null);
 
-    try {
-      const response = await authAPI.login({
-        usernameOrEmail: formData.usernameOrEmail,
-        password: formData.password,
-      });
+  try {
+    const response = await authAPI.login({
+      usernameOrEmail: formData.usernameOrEmail,
+      password: formData.password,
+    });
 
-      const userData = storeUser(response.data.token);
-      login(userData);
-      toast.success('Login successful!');
+    const { token, user } = response.data;
+
+    const result = await login(token, user);
+
+    if (result.success) {
+      toast.success(`Welcome back, ${result.user.username || 'User'}!`);
       navigate('/dashboard');
-    } catch (err) {
-      const errorMessage = err.response?.data?.message || 'Invalid credentials';
-      setError(errorMessage);
-      toast.error(errorMessage);
-    } finally {
-      setLoading(false);
+    } else {
+      setError(result.error);
+      toast.error(result.error);
     }
-  };
+  } catch (err) {
+    const errorMessage = err.response?.data?.message || 'Invalid credentials';
+    console.error('Login error:', err);
+    setError(errorMessage);
+    toast.error(errorMessage);
+  } finally {
+    setLoading(false);
+  }
+};
 
   const fields = [
     {

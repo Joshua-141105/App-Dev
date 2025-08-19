@@ -71,8 +71,6 @@ export const AuthProvider = ({ children }) => {
 
   const validateTokenWithBackend = async (token) => {
     try {
-      // Make a test API call to validate token
-      // This could be a /me endpoint or any protected endpoint
       const response = await fetch('/api/auth/validate', {
         headers: {
           'Authorization': `Bearer ${token}`
@@ -100,49 +98,41 @@ export const AuthProvider = ({ children }) => {
       return true;
     }
   };
+// authContext.js (or wherever login function is)
+const login = async (authToken, userData) => {
+  try {
+    setIsLoading(true);
 
-  const login = async (credentials) => {
-    try {
-      setIsLoading(true);
-      const response = await authAPI.login(credentials);
-      
-      const { token: authToken, user: userData } = response.data;
-      
-      // Decode token to get user info if not provided
-      let userInfo = userData;
-      if (!userInfo && authToken) {
-        try {
-          const payload = JSON.parse(atob(authToken.split('.')[1]));
-          userInfo = {
-            username: payload.sub,
-            role: payload.role,
-            // Add other user info from token
-          };
-        } catch (error) {
-          console.error('Error decoding token:', error);
-        }
+    let userInfo = userData;
+    if (!userInfo && authToken) {
+      try {
+        const payload = JSON.parse(atob(authToken.split('.')[1]));
+        console.log('Payload:', payload);
+        userInfo = {
+          id : payload.id,
+          username: payload.sub,
+          role: payload.role,
+        };
+      } catch (error) {
+        console.error('Error decoding token:', error);
       }
-
-      setToken(authToken);
-      setUser(userInfo);
-      setIsAuthenticated(true);
-      
-      // Store in localStorage
-      localStorage.setItem('authToken', authToken);
-      localStorage.setItem('authUser', JSON.stringify(userInfo));
-      
-      toast.success(`Welcome back, ${userInfo.username || 'User'}!`);
-      
-      return { success: true, user: userInfo };
-    } catch (error) {
-      console.error('Login failed:', error);
-      const errorMessage = error.response?.data?.message || 'Login failed. Please try again.';
-      toast.error(errorMessage);
-      return { success: false, error: errorMessage };
-    } finally {
-      setIsLoading(false);
     }
-  };
+
+    setToken(authToken);
+    setUser(userInfo);
+    setIsAuthenticated(true);
+
+    localStorage.setItem('authToken', authToken);
+    localStorage.setItem('authUser', JSON.stringify(userInfo));
+
+    return { success: true, user: userInfo };
+  } catch (error) {
+    console.error('Login failed:', error);
+    return { success: false, error: 'Login failed. Please try again.' };
+  } finally {
+    setIsLoading(false);
+  }
+};
 
   const register = async (userData) => {
     try {

@@ -1,5 +1,6 @@
 package com.example.springapp.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import java.sql.Timestamp;
 
@@ -13,5 +14,6 @@ public class VehicleDTO {
     private String model;
     private String color;
     private int year;
+    @JsonProperty("isDefault")
     private boolean isDefault;
 }
