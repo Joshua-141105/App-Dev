@@ -46,21 +46,19 @@ export const AuthProvider = ({ children }) => {
 
     if (storedToken && storedUser) {
       try {
-        // Validate token by making a test API call
         const decodedUser = JSON.parse(storedUser);
         
         // Check if token is expired
-        if (isTokenExpired(storedToken)) {
-          logout();
-          return;
-        }
+        // if (isTokenExpired(storedToken)) {
+        //   logout();
+        //   return;
+        // }
 
         setToken(storedToken);
         setUser(decodedUser);
         setIsAuthenticated(true);
         
-        // Optional: Validate token with backend
-        await validateTokenWithBackend(storedToken);
+        // await validateTokenWithBackend(storedToken);
       } catch (error) {
         console.error('Auth initialization failed:', error);
         logout();

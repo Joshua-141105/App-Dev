@@ -73,7 +73,7 @@ const Navbar = ({ onMenuToggle, mobileOpen }) => {
         </IconButton>
         
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          ParkEase - Parking Management
+          Parking Slot Booking System
         </Typography>
 
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
