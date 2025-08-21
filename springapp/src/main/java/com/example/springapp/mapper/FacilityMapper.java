@@ -41,4 +41,24 @@ public class FacilityMapper {
         facility.setManager(manager);
         return facility;
     }
+    public static void updateEntityFromDTO(Facility facility, FacilityDTO dto, User manager) {
+        if (facility == null || dto == null) {
+            return;
+        }
+
+        facility.setFacilityName(dto.getFacilityName());
+        facility.setAddress(dto.getAddress());
+        facility.setCity(dto.getCity());
+        facility.setState(dto.getState());
+        facility.setZipCode(dto.getZipCode());
+        facility.setTotalSlots(dto.getTotalSlots());
+        facility.setOperatingHours(dto.getOperatingHours());
+        facility.setContactInfo(dto.getContactInfo());
+        facility.setLatitude(dto.getLatitude());
+        facility.setLongitude(dto.getLongitude());
+        
+        if (manager != null) {
+            facility.setManager(manager);
+        }
+    }
 }

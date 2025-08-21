@@ -24,7 +24,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from 'dayjs';
 import { motion } from 'framer-motion';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { vehicleAPI, bookingAPI, paymentAPI } from '../../utils/api';
+import { vehicleAPI, bookingAPI, paymentAPI, notificationAPI } from '../../utils/api';
 import { useAuth } from '../../context/AuthContext';
 import { toast } from 'react-toastify';
 
@@ -173,6 +173,17 @@ const BookingFormPage = () => {
       };
 
       await paymentAPI.create(paymentData);
+
+      const notificationData = {
+        userId : user.id,
+        message : `Your booking for slot ${selectedSlot.slotNumber} has been confirmed.`,
+        type : "BOOKING_CONFIRMATION",
+        priority:"Medium",
+        relatedEntityType: "Booking",
+        relatedEntityId : bookingResponse.data.bookingId,
+        isRead : false
+      };
+      const notificationResponse = await notificationAPI.create(notificationData);
 
       toast.success('Booking created successfully!');
       navigate('/my-bookings');

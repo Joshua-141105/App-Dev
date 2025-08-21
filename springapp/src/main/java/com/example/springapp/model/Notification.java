@@ -60,11 +60,10 @@ public class Notification {
         ALERT,
         SYSTEM_UPDATE
     }
-
+    
     public enum Priority {
         LOW, MEDIUM, HIGH, URGENT
     }
-
     public void markAsRead() {
         if (!this.isRead) {
             this.isRead = true;

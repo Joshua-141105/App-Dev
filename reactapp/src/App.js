@@ -2,11 +2,9 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { CssBaseline } from '@mui/material';
+import { CssBaseline, Box } from '@mui/material';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-// Auth Context
 
 // Components
 import Navbar from './components/layout/Navbar';
@@ -36,6 +34,8 @@ import FinancialReportsPage from './pages/manager/FinancialReportsPage';
 
 // Admin Pages
 import UserManagementPage from './pages/admin/UserManagementPage';
+import FacilityManagementPage from './pages/admin/FacilityManagementPage';
+import FacilityAnalyticsReportPage from './pages/admin/FacilityAnalyticsReportPage';
 import AccessControlPage from './pages/admin/AccessControlPage';
 import AuditLogsPage from './pages/admin/AuditLogsPage';
 
@@ -50,14 +50,22 @@ import AdminDashboard from './pages/dashboard/AdminDashboard';
 // Utils
 import { getStoredUser, removeStoredUser } from './utils/auth';
 import { AuthProvider, useAuth } from './context/AuthContext';
-import {CustomThemeProvider as AppThemeProvider} from './context/ThemeProvider';
+import { CustomThemeProvider as AppThemeProvider } from './context/ThemeProvider';
 
 function App() {
   return (
     <AppThemeProvider>
       <AuthProvider>
-        <Router>
-          <div className="App">
+        <CssBaseline />
+        <Box 
+          sx={{ 
+            height: '100vh',
+            overflow: 'hidden',
+            display: 'flex',
+            flexDirection: 'column',
+          }}
+        >
+          <Router>
             <Routes>
               {/* Auth Routes */}
               <Route path="/login" element={<LoginPage />} />
@@ -71,6 +79,7 @@ function App() {
                 </ProtectedRoute>
               } />
             </Routes>
+            
             <ToastContainer 
               position="top-right"
               autoClose={5000}
@@ -81,9 +90,10 @@ function App() {
               pauseOnFocusLoss
               draggable
               pauseOnHover
+              style={{ zIndex: 9999 }} // Ensure toasts appear above fixed elements
             />
-          </div>
-        </Router>
+          </Router>
+        </Box>
       </AuthProvider>
     </AppThemeProvider>
   );
@@ -108,8 +118,10 @@ const MainLayout = () => {
             user.role === 'SYSTEM_ADMIN' ? <AdminDashboard /> :
             user.role === 'SECURITY' ? <SecurityDashboard /> :
             <UserDashboard />
-          } 
+          }
         />
+        
+        {/* User Routes */}
         <Route path="/slots" element={<SlotAvailabilityPage />} />
         <Route path="/book-slot" element={<BookingFormPage />} />
         <Route path="/my-bookings" element={<MyBookingsPage />} />
@@ -119,6 +131,7 @@ const MainLayout = () => {
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/notifications" element={<NotificationsPage />} />
 
+        {/* Manager Routes */}
         <Route 
           path="/slot-management" 
           element={
@@ -152,11 +165,28 @@ const MainLayout = () => {
           } 
         />
 
+        {/* Admin Routes */}
         <Route 
           path="/user-management" 
           element={
             <ProtectedRoute requiredRoles={['SYSTEM_ADMIN']}>
               <UserManagementPage />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/facility-management" 
+          element={
+            <ProtectedRoute requiredRoles={['SYSTEM_ADMIN']}>
+              <FacilityManagementPage />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/facility-analytics" 
+          element={
+            <ProtectedRoute requiredRoles={['SYSTEM_ADMIN', 'FACILITY_MANAGER']}>
+              <FacilityAnalyticsReportPage />
             </ProtectedRoute>
           } 
         />

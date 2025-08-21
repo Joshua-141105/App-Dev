@@ -30,7 +30,7 @@ import { useNavigate } from 'react-router-dom';
 import { parkingSlotAPI, facilityAPI } from '../../utils/api';
 import { toast } from 'react-toastify';
 
-const SlotCard = ({ slot, onBook }) => {
+const SlotCard = ({ slot, onBook ,facilities}) => {
   const getSlotIcon = () => {
     switch (slot.slotType) {
       case 'ELECTRIC_VEHICLE':
@@ -44,6 +44,10 @@ const SlotCard = ({ slot, onBook }) => {
     }
   };
 
+  const getFacilityName =  (slot , facilities) => {
+    // console.log("Facilities:", facilities);
+    return facilities.find(facility => facility.facilityId === slot.facilityId)?.facilityName || 'Unknown Facility';
+  };
   const getSlotColor = () => {
     if (!slot.isAvailable) return 'error';
     switch (slot.slotType) {
@@ -63,8 +67,8 @@ const SlotCard = ({ slot, onBook }) => {
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
     >
-      <Card 
-        sx={{ 
+      <Card
+        sx={{
           height: '100%',
           border: slot.isAvailable ? '2px solid transparent' : '2px solid #f44336',
           '&:hover': {
@@ -75,25 +79,30 @@ const SlotCard = ({ slot, onBook }) => {
       >
         <CardContent>
           <Box display="flex" justifyContent="space-between" alignItems="center" mb={2}>
-            <Typography variant="h6">
-              Slot {slot.slotNumber}
-            </Typography>
+            <Box>
+              <Typography variant="h6">
+                Slot {slot.slotNumber}
+              </Typography>
+              <Typography variant="body2" color="textSecondary">
+                {facilities ? getFacilityName(slot,facilities) : 'Loading...'}
+              </Typography>
+            </Box>
             <Avatar sx={{ bgcolor: `${getSlotColor()}.main` }}>
               {getSlotIcon()}
             </Avatar>
           </Box>
-          
+
           <Chip
             label={slot.slotType.replace('_', ' ')}
             color={getSlotColor()}
             size="small"
             sx={{ mb: 1 }}
           />
-          
+
           <Typography variant="body2" color="textSecondary" gutterBottom>
             Floor {slot.floor} - {slot.section}
           </Typography>
-          
+
           <Box display="flex" justifyContent="space-between" alignItems="center" mb={2}>
             <Typography variant="h6" color="primary">
               ${slot.hourlyRate}/hr
@@ -110,7 +119,6 @@ const SlotCard = ({ slot, onBook }) => {
               Features: {slot.features}
             </Typography>
           )}
-
           <Button
             fullWidth
             variant={slot.isAvailable ? 'contained' : 'outlined'}
@@ -123,6 +131,7 @@ const SlotCard = ({ slot, onBook }) => {
       </Card>
     </motion.div>
   );
+
 };
 
 const SlotAvailabilityPage = () => {
@@ -163,8 +172,8 @@ const SlotAvailabilityPage = () => {
   const fetchFacilities = async () => {
     try {
       const response = await facilityAPI.getAll();
-      console.log('Facilities:', response.data);
       setFacilities(response.data);
+      console.log('Facilities:', facilities);
     } catch (error) {
       console.error('Error fetching facilities:', error);
     }
@@ -303,7 +312,7 @@ const SlotAvailabilityPage = () => {
         ) : (
           filteredSlots.map((slot) => (
             <Grid item xs={12} sm={6} md={4} lg={3} key={slot.slotId}>
-              <SlotCard slot={slot} onBook={handleBookSlot} />
+              <SlotCard slot={slot} onBook={handleBookSlot} facilities={facilities}/>
             </Grid>
           ))
         )}

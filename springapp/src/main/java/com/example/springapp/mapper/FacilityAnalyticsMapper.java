@@ -37,4 +37,24 @@ public class FacilityAnalyticsMapper {
         entity.setUtilizationScore(dto.getUtilizationScore());
         return entity;
     }
+    public static void updateEntityFromDTO(FacilityAnalytics analytics, FacilityAnalyticsDTO dto, Facility facility) {
+        if (analytics == null || dto == null) {
+            return;
+        }
+
+        if (dto.getDate() != null) {
+            analytics.setDate(dto.getDate().toLocalDate());
+        }
+        
+        analytics.setTotalBookings(dto.getTotalBookings());
+        analytics.setOccupancyRate(dto.getOccupancyRate());
+        analytics.setRevenue(dto.getRevenue());
+        analytics.setAverageBookingDuration(dto.getAverageBookingDuration());
+        analytics.setPeakHours(dto.getPeakHours());
+        analytics.setUtilizationScore(dto.getUtilizationScore());
+        
+        if (facility != null) {
+            analytics.setFacility(facility);
+        }
+    }
 }

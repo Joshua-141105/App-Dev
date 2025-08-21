@@ -12,27 +12,65 @@ const DashboardLayout = ({ children }) => {
   };
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box 
+      sx={{ 
+        display: 'flex',
+        height: '100vh', // Full viewport height
+        overflow: 'hidden', // Prevent body scroll
+      }}
+    >
+      {/* Fixed Navbar */}
       <Navbar 
         onMenuToggle={handleDrawerToggle} 
         mobileOpen={mobileOpen}
       />
+      
+      {/* Fixed Sidebar */}
       <Sidebar 
         mobileOpen={mobileOpen} 
         onMobileClose={handleDrawerToggle}
       />
+      
+      {/* Main Content Area */}
       <Box
         component="main"
         sx={{
           flexGrow: 1,
-          p: 3,
-          width: { sm: `calc(100% - 240px)` },
-          minHeight: '100vh',
+          width: { sm: `calc(100% - 240px)` }, // Account for sidebar width
+          height: '100vh', // Full viewport height
+          overflow: 'auto', // Enable scrolling for content only
           bgcolor: 'background.default',
+          display: 'flex',
+          flexDirection: 'column',
         }}
       >
+        {/* Toolbar spacer for fixed navbar */}
         <Toolbar />
-        {children}
+        
+        {/* Scrollable content container */}
+        <Box
+          sx={{
+            flex: 1,
+            p: 3,
+            overflow: 'auto', // Enable scrolling
+            // Custom scrollbar styling
+            '&::-webkit-scrollbar': {
+              width: '8px',
+            },
+            '&::-webkit-scrollbar-track': {
+              background: 'transparent',
+            },
+            '&::-webkit-scrollbar-thumb': {
+              background: (theme) => theme.palette.mode === 'dark' ? '#555' : '#ccc',
+              borderRadius: '4px',
+              '&:hover': {
+                background: (theme) => theme.palette.mode === 'dark' ? '#666' : '#bbb',
+              },
+            },
+          }}
+        >
+          {children}
+        </Box>
       </Box>
     </Box>
   );

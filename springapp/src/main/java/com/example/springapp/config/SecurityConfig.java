@@ -46,7 +46,7 @@ public class SecurityConfig {
                     "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html"
                 ).permitAll()
                 .requestMatchers("/api/**").hasRole("SYSTEM_ADMIN")
-                .requestMatchers("/api/manager/**").hasAnyRole("FACILITY_MANAGER","SYSTEM_ADMIN")
+                .requestMatchers("/api/**").hasAnyRole("FACILITY_MANAGER","SYSTEM_ADMIN")
                 .anyRequest().authenticated()
             )
             .authenticationProvider(daoAuthProvider())

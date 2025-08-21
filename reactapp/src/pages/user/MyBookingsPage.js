@@ -38,7 +38,7 @@ import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from 'dayjs';
-import { bookingAPI, parkingSlotAPI, paymentAPI } from '../../utils/api';
+import { bookingAPI, notificationAPI, parkingSlotAPI, paymentAPI } from '../../utils/api';
 import { useAuth } from '../../context/AuthContext';
 import { toast } from 'react-toastify';
 
@@ -242,7 +242,7 @@ const MyBookingsPage = () => {
         status: 'CANCELLED'
       });
       const slot = await parkingSlotAPI.getById(selectedBooking.slotId);
-      await parkingSlotAPI.update(selectedBooking.slotId, {
+      const slotResponse=await parkingSlotAPI.update(selectedBooking.slotId, {
         ...slot.data,
         available: true, 
         isAvailable: true
@@ -253,6 +253,17 @@ const MyBookingsPage = () => {
         status: 'REFUNDED',
         refundAmount : payment.data.amount
       });
+      const notificationData = {
+        userId : user.id,
+        message : `Your booking for slot ${slotResponse.data.slotNumber} has been cancelled.`,
+        type : "ALERT",
+        priority:"HIGH",
+        relatedEntityType: "Booking",
+        relatedEntityId : selectedBooking.bookingId,
+        isRead : false
+      };
+      const notificationResponse = await notificationAPI.create(notificationData);
+
       toast.success('Booking cancelled successfully');
       fetchBookings();
       setDialogType(null);
