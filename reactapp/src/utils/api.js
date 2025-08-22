@@ -1,6 +1,7 @@
-// utils/api.js
+// Updated utils/api.js with additional time-based booking methods
 import axios from 'axios';
 import { getStoredUser, removeStoredUser } from './auth';
+import dayjs from 'dayjs';
 
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:8080/api';
 
@@ -59,23 +60,52 @@ export const userAPI = {
 export const parkingSlotAPI = {
   getAll: (signal) => api.get('/parkingslots', withSignal(signal)),
   getPaginated: (params, signal) =>
-  api.get('/parkingslots/paginated', {
-    ...withSignal(signal),
-    params,  // passes { page, size, facilityId, slotType, availableOnly }
-  }),
+    api.get('/parkingslots/paginated', {
+      ...withSignal(signal),
+      params,  // passes { page, size, facilityId, slotType, availableOnly, startTime, endTime }
+    }),
   getById: (id, signal) => api.get(`/parkingslots/${id}`, withSignal(signal)),
   create: (slotData, signal) => api.post('/parkingslots', slotData, withSignal(signal)),
   update: (id, slotData, signal) => api.put(`/parkingslots/${id}`, slotData, withSignal(signal)),
   delete: (id, signal) => api.delete(`/parkingslots/${id}`, withSignal(signal)),
+  
+  // Time-based availability methods
+  getAvailableForTime: (params, signal) =>
+    api.get('/parkingslots/available', {
+      ...withSignal(signal),
+      params, // { startTime, endTime }
+    }),
+  getCurrentAvailability: (id, signal) => 
+    api.get(`/parkingslots/${id}/current-availability`, withSignal(signal)),
+  getUpcomingBookings: (id, signal) => 
+    api.get(`/parkingslots/${id}/upcoming-bookings`, withSignal(signal)),
 };
 
 // -------- Booking API --------
 export const bookingAPI = {
   getAll: (signal) => api.get('/bookings', withSignal(signal)),
   getById: (id, signal) => api.get(`/bookings/${id}`, withSignal(signal)),
+  getByUserId: (userId, signal) => api.get(`/bookings/user/${userId}`, withSignal(signal)),
   create: (bookingData, signal) => api.post('/bookings', bookingData, withSignal(signal)),
   update: (id, bookingData, signal) => api.put(`/bookings/${id}`, bookingData, withSignal(signal)),
   delete: (id, signal) => api.delete(`/bookings/${id}`, withSignal(signal)),
+  
+  // Time-based booking methods
+  checkAvailability: (params, signal) =>
+    api.get('/bookings/check-availability', {
+      ...withSignal(signal),
+      params, // { slotId, startTime, endTime }
+    }),
+  getAvailableTimeSlots: (slotId, params, signal) =>
+    api.get(`/bookings/available-slots/${slotId}`, {
+      ...withSignal(signal),
+      params, // { date }
+    }),
+  getOverdue: (signal) => api.get('/bookings/overdue', withSignal(signal)),
+  
+  // Booking actions
+  checkIn: (id, signal) => api.post(`/bookings/${id}/checkin`, null, withSignal(signal)),
+  checkOut: (id, signal) => api.post(`/bookings/${id}/checkout`, null, withSignal(signal)),
 };
 
 // -------- Vehicle API --------
@@ -134,6 +164,75 @@ export const bookingHistoryAPI = {
   getById: (id, signal) => api.get(`/booking-histories/${id}`, withSignal(signal)),
   create: (historyData, signal) => api.post('/booking-histories', historyData, withSignal(signal)),
   delete: (id, signal) => api.delete(`/booking-histories/${id}`, withSignal(signal)),
+};
+
+// -------- Time-based Utility Functions --------
+export const timeUtils = {
+  // Format date for API calls
+  formatDateForAPI: (date) => {
+    return dayjs(date).toISOString();
+  },
+  
+  // Check if two time ranges overlap
+  doTimeRangesOverlap: (start1, end1, start2, end2) => {
+    return start1 < end2 && end1 > start2;
+  },
+  
+  // Calculate duration between two times in hours
+  calculateDurationHours: (startTime, endTime) => {
+    return dayjs(endTime).diff(dayjs(startTime), 'hour', true);
+  },
+  
+  // Validate booking time range
+  validateBookingTimeRange: (startTime, endTime) => {
+    const now = dayjs();
+    const start = dayjs(startTime);
+    const end = dayjs(endTime);
+    
+    const errors = [];
+    
+    if (start.isBefore(now)) {
+      errors.push('Start time cannot be in the past');
+    }
+    
+    if (end.isBefore(start) || end.isEqual(start)) {
+      errors.push('End time must be after start time');
+    }
+    
+    const durationHours = end.diff(start, 'hour', true);
+    if (durationHours < 1) {
+      errors.push('Minimum booking duration is 1 hour');
+    }
+    
+    if (durationHours > 24) {
+      errors.push('Maximum booking duration is 24 hours');
+    }
+    
+    return {
+      isValid: errors.length === 0,
+      errors,
+      durationHours
+    };
+  },
+  
+  // Generate time slots for a day (useful for slot selection)
+  generateTimeSlots: (date, intervalHours = 1, operatingHours = { start: 6, end: 22 }) => {
+    const slots = [];
+    const baseDate = dayjs(date).startOf('day');
+    
+    for (let hour = operatingHours.start; hour < operatingHours.end; hour += intervalHours) {
+      const startTime = baseDate.hour(hour);
+      const endTime = startTime.add(intervalHours, 'hour');
+      
+      slots.push({
+        startTime: startTime.toDate(),
+        endTime: endTime.toDate(),
+        label: `${startTime.format('HH:mm')} - ${endTime.format('HH:mm')}`
+      });
+    }
+    
+    return slots;
+  }
 };
 
 export default api;

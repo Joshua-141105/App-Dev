@@ -1,5 +1,4 @@
-
-// pages/user/BookingFormPage.js
+// Updated BookingFormPage.js with real-time availability checking
 import React, { useState, useEffect } from 'react';
 import {
   Card,
@@ -17,6 +16,7 @@ import {
   Paper,
   Divider,
   Chip,
+  CircularProgress,
 } from '@mui/material';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -33,25 +33,45 @@ const BookingFormPage = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
   const selectedSlot = location.state?.selectedSlot;
+  const preSelectedStartTime = location.state?.preSelectedStartTime;
+  const preSelectedEndTime = location.state?.preSelectedEndTime;
 
   const [vehicles, setVehicles] = useState([]);
   const [formData, setFormData] = useState({
     slotId: selectedSlot?.slotId || '',
     vehicleId: '',
-    startTime: dayjs(),
-    endTime: dayjs().add(2, 'hour'),
+    startTime: preSelectedStartTime ? dayjs(preSelectedStartTime) : dayjs(),
+    endTime: preSelectedEndTime ? dayjs(preSelectedEndTime) : dayjs().add(2, 'hour'),
     vehicleNumber: '',
   });
+
+
   const [cost, setCost] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [checkingAvailability, setCheckingAvailability] = useState(false);
   const [error, setError] = useState(null);
+  const [availabilityStatus, setAvailabilityStatus] = useState({
+    available: true,
+    checking: false,
+    message: '',
+  });
 
   useEffect(() => {
     fetchVehicles();
   }, []);
 
   useEffect(() => {
+  setFormData(prev => ({
+    ...prev,
+    startTime: dayjs(prev.startTime),
+    endTime: dayjs(prev.endTime),
+  }));
+}, []);
+
+
+  useEffect(() => {
     calculateCost();
+    checkRealTimeAvailability();
   }, [formData.startTime, formData.endTime]);
 
   const fetchVehicles = async () => {
@@ -59,7 +79,7 @@ const BookingFormPage = () => {
       const response = await vehicleAPI.getAll();
       const userVehicles = response.data.filter(v => v.userId === user.id);
       setVehicles(userVehicles);
-      
+
       if (userVehicles.length > 0) {
         const defaultVehicle = userVehicles.find(v => v.isDefault) || userVehicles[0];
         setFormData(prev => ({
@@ -84,6 +104,41 @@ const BookingFormPage = () => {
     setCost(totalCost);
   };
 
+  const checkRealTimeAvailability = async () => {
+    if (!selectedSlot || !formData.startTime || !formData.endTime) {
+      return;
+    }
+
+    setCheckingAvailability(true);
+    setAvailabilityStatus(prev => ({ ...prev, checking: true }));
+
+    try {
+      const response = await bookingAPI.checkAvailability({
+        slotId: selectedSlot.slotId,
+        startTime: formData.startTime.toISOString(),
+        endTime: formData.endTime.toISOString(),
+      });
+
+      const available = response.data;
+      setAvailabilityStatus({
+        available,
+        checking: false,
+        message: available
+          ? 'Slot is available for the selected time'
+          : 'Slot is not available for the selected time. Please choose different times.',
+      });
+    } catch (error) {
+      console.error('Error checking availability:', error);
+      setAvailabilityStatus({
+        available: false,
+        checking: false,
+        message: 'Unable to check availability. Please try again.',
+      });
+    } finally {
+      setCheckingAvailability(false);
+    }
+  };
+
   const handleInputChange = (field) => (event) => {
     const value = event.target.value;
     setFormData(prev => ({
@@ -103,11 +158,15 @@ const BookingFormPage = () => {
   };
 
   const handleDateTimeChange = (field) => (newValue) => {
+    if (!dayjs.isDayjs(newValue)) {
+      newValue = dayjs(newValue); // convert to dayjs if not already
+    }
     setFormData(prev => ({
       ...prev,
       [field]: newValue,
     }));
   };
+
 
   const validateForm = () => {
     const now = dayjs();
@@ -135,6 +194,11 @@ const BookingFormPage = () => {
       return false;
     }
 
+    if (!availabilityStatus.available) {
+      setError('Selected time slot is not available');
+      return false;
+    }
+
     return true;
   };
 
@@ -149,13 +213,26 @@ const BookingFormPage = () => {
     setLoading(true);
 
     try {
+      // Final availability check before booking
+      const finalAvailabilityCheck = await bookingAPI.checkAvailability({
+        slotId: selectedSlot.slotId,
+        startTime: formData.startTime.format('YYYY-MM-DDTHH:mm:ss'),
+        endTime: formData.endTime.format('YYYY-MM-DDTHH:mm:ss'),
+      });
+
+      if (!finalAvailabilityCheck.data) {
+        setError('Slot was booked by someone else. Please select different times.');
+        setLoading(false);
+        return;
+      }
+
       // Create booking
       const bookingData = {
         userId: user.id,
         slotId: formData.slotId,
         vehicleNumber: formData.vehicleNumber,
-        startTime: formData.startTime.toISOString(),
-        endTime: formData.endTime.toISOString(),
+        startTime: formData.startTime.format('YYYY-MM-DDTHH:mm:ss'),
+        endTime: formData.endTime.format('YYYY-MM-DDTHH:mm:ss'),
         totalCost: cost,
         status: 'CONFIRMED',
         extendedTime: 0,
@@ -175,25 +252,41 @@ const BookingFormPage = () => {
       await paymentAPI.create(paymentData);
 
       const notificationData = {
-        userId : user.id,
-        message : `Your booking for slot ${selectedSlot.slotNumber} has been confirmed.`,
-        type : "BOOKING_CONFIRMATION",
-        priority:"Medium",
+        userId: user.id,
+        message: `Your booking for slot ${selectedSlot.slotNumber} from ${formData.startTime.format('MMM DD, HH:mm')} to ${formData.endTime.format('MMM DD, HH:mm')} has been confirmed.`,
+        type: "BOOKING_CONFIRMATION",
+        priority: "Medium",
         relatedEntityType: "Booking",
-        relatedEntityId : bookingResponse.data.bookingId,
-        isRead : false
+        relatedEntityId: bookingResponse.data.bookingId,
+        isRead: false
       };
-      const notificationResponse = await notificationAPI.create(notificationData);
+      await notificationAPI.create(notificationData);
 
       toast.success('Booking created successfully!');
       navigate('/my-bookings');
     } catch (error) {
       console.error('Error creating booking:', error);
-      setError(error.response?.data?.message || 'Failed to create booking');
+      if (error.response?.status === 409) {
+        setError('This time slot is no longer available. Please select different times.');
+      } else {
+        setError(error.response?.data?.message || 'Failed to create booking');
+      }
       toast.error('Failed to create booking');
     } finally {
       setLoading(false);
     }
+  };
+
+  const suggestAlternativeTimes = () => {
+    // Suggest next available 2-hour slot
+    const newStartTime = formData.endTime;
+    const newEndTime = newStartTime.add(2, 'hour');
+
+    setFormData(prev => ({
+      ...prev,
+      startTime: newStartTime,
+      endTime: newEndTime,
+    }));
   };
 
   if (!selectedSlot) {
@@ -258,11 +351,32 @@ const BookingFormPage = () => {
                   Rate: ${selectedSlot.hourlyRate}/hour
                 </Typography>
                 {selectedSlot.features && (
-                  <Typography variant="body2" color="textSecondary">
+                  <Typography variant="body2" color="textSecondary" gutterBottom>
                     Features: {selectedSlot.features}
                   </Typography>
                 )}
+
                 <Divider sx={{ my: 2 }} />
+
+                {/* Availability Status */}
+                <Box mb={2}>
+                  {availabilityStatus.checking || checkingAvailability ? (
+                    <Box display="flex" alignItems="center" gap={1}>
+                      <CircularProgress size={16} />
+                      <Typography variant="body2" color="textSecondary">
+                        Checking availability...
+                      </Typography>
+                    </Box>
+                  ) : (
+                    <Alert
+                      severity={availabilityStatus.available ? 'success' : 'warning'}
+                      sx={{ mb: 1 }}
+                    >
+                      {availabilityStatus.message}
+                    </Alert>
+                  )}
+                </Box>
+
                 <Typography variant="h6" color="primary">
                   Total Cost: ${cost.toFixed(2)}
                 </Typography>
@@ -279,7 +393,21 @@ const BookingFormPage = () => {
                 </Typography>
 
                 {error && (
-                  <Alert severity="error" sx={{ mb: 2 }}>
+                  <Alert
+                    severity="error"
+                    sx={{ mb: 2 }}
+                    action={
+                      error.includes('not available') && (
+                        <Button
+                          color="inherit"
+                          size="small"
+                          onClick={suggestAlternativeTimes}
+                        >
+                          Try Next Slot
+                        </Button>
+                      )
+                    }
+                  >
                     {error}
                   </Alert>
                 )}
@@ -319,8 +447,27 @@ const BookingFormPage = () => {
                         value={formData.endTime}
                         onChange={handleDateTimeChange('endTime')}
                         renderInput={(params) => <TextField {...params} fullWidth required />}
-                        minDateTime={formData.startTime.add(1, 'hour')}
+                        minDateTime={formData.startTime ? formData.startTime.add(1, 'hour') : dayjs().add(1, 'hour')}
                       />
+
+                    </Grid>
+
+                    {/* Duration and cost breakdown */}
+                    <Grid item xs={12}>
+                      <Paper sx={{ p: 2, bgcolor: 'background.default' }}>
+                        <Typography variant="subtitle2" gutterBottom>
+                          Booking Summary
+                        </Typography>
+                        <Typography variant="body2" color="textSecondary">
+                          Duration: {formData.endTime.diff(formData.startTime, 'hour', true).toFixed(1)} hours
+                        </Typography>
+                        <Typography variant="body2" color="textSecondary">
+                          Rate: ${selectedSlot.hourlyRate}/hour
+                        </Typography>
+                        <Typography variant="body2" color="textSecondary">
+                          Vehicle: {formData.vehicleNumber || 'Not selected'}
+                        </Typography>
+                      </Paper>
                     </Grid>
 
                     <Grid item xs={12}>
@@ -335,9 +482,16 @@ const BookingFormPage = () => {
                           type="submit"
                           variant="contained"
                           size="large"
-                          disabled={loading}
+                          disabled={loading || !availabilityStatus.available || checkingAvailability}
                         >
-                          {loading ? 'Booking...' : `Book for $${cost.toFixed(2)}`}
+                          {loading ? (
+                            <>
+                              <CircularProgress size={20} sx={{ mr: 1 }} />
+                              Booking...
+                            </>
+                          ) : (
+                            `Book for ${cost.toFixed(2)}`
+                          )}
                         </Button>
                       </Box>
                     </Grid>
@@ -351,4 +505,5 @@ const BookingFormPage = () => {
     </LocalizationProvider>
   );
 };
+
 export default BookingFormPage;

@@ -66,8 +66,8 @@ const RegisterPage = () => {
       await userAPI.create({
         email: formData.email,
         username: formData.username,
-        firstname,
-        lastname,
+        firstName : firstname,
+        lastName : lastname,
         password,
       });
       toast.success('Registration successful! Please login.');
