@@ -58,6 +58,11 @@ export const userAPI = {
 // -------- Parking Slot API --------
 export const parkingSlotAPI = {
   getAll: (signal) => api.get('/parkingslots', withSignal(signal)),
+  getPaginated: (params, signal) =>
+  api.get('/parkingslots/paginated', {
+    ...withSignal(signal),
+    params,  // passes { page, size, facilityId, slotType, availableOnly }
+  }),
   getById: (id, signal) => api.get(`/parkingslots/${id}`, withSignal(signal)),
   create: (slotData, signal) => api.post('/parkingslots', slotData, withSignal(signal)),
   update: (id, slotData, signal) => api.put(`/parkingslots/${id}`, slotData, withSignal(signal)),

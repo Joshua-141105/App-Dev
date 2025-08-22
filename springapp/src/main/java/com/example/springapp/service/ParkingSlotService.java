@@ -4,7 +4,9 @@ import com.example.springapp.dto.ParkingSlotDTO;
 import com.example.springapp.mapper.ParkingSlotMapper;
 import com.example.springapp.model.ParkingSlot;
 import com.example.springapp.repository.ParkingSlotRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,6 +25,23 @@ public class ParkingSlotService {
                 .map(ParkingSlotMapper::toDTO)
                 .collect(Collectors.toList());
     }
+
+    public Page<ParkingSlotDTO> getParkingSlots(int page, int size, Long facilityId, String slotType, Boolean availableOnly) {
+    Pageable pageable = PageRequest.of(page, size);
+
+    ParkingSlot.SlotType slotTypeEnum = null;
+    if (slotType != null && !slotType.isEmpty()) {
+        try {
+            slotTypeEnum = ParkingSlot.SlotType.valueOf(slotType.toUpperCase());
+        } catch (IllegalArgumentException e) {
+            throw new RuntimeException("Invalid slotType value: " + slotType);
+        }
+    }
+
+    Page<ParkingSlot> slots = repository.findFiltered(facilityId, slotTypeEnum, availableOnly, pageable);
+
+    return slots.map(ParkingSlotMapper::toDTO);
+}
 
     public Optional<ParkingSlotDTO> getById(Long id) {
         return repository.findById(id)

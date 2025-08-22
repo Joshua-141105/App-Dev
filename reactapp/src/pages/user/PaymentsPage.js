@@ -311,9 +311,9 @@ const PaymentsPage = () => {
         bookingAPI.getAll()
       ]);
 
-      const userBookings = bookingsRes.data.filter(b => b.userId === user.id);
+      const userBookings = bookingsRes.data.filter(b => b.userId === user.id || user.role === 'ADMIN');
       const userPayments = paymentsRes.data.filter(p => 
-        userBookings.some(b => b.bookingId === p.bookingId)
+        userBookings.some(b => b.bookingId === p.bookingId) || user.role === 'ADMIN'
       );
 
       setPayments(userPayments.sort((a, b) => new Date(b.paymentDate) - new Date(a.paymentDate)));

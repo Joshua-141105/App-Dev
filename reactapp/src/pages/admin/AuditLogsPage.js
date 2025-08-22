@@ -525,7 +525,7 @@ const AuditLogsPage = () => {
                         Filter Logs
                     </Typography>
                     <Grid container spacing={2} alignItems="center">
-                        <Grid item xs={12} md={3}>
+                        <Grid item xs={12} md={2}>
                             <TextField
                                 fullWidth
                                 placeholder="Search logs..."
@@ -599,7 +599,7 @@ const AuditLogsPage = () => {
                             </LocalizationProvider>
                         </Grid>
 
-                        <Grid item xs={12} md={1}>
+                        <Grid item xs={12} md={2}>
                             <Button
                                 fullWidth
                                 variant="outlined"
@@ -642,6 +642,7 @@ const AuditLogsPage = () => {
                                 <TableCell><strong>Actions</strong></TableCell>
                             </TableRow>
                         </TableHead>
+
                         <TableBody>
                             {displayedLogs.map((log, index) => (
                                 <MotionTableRow
@@ -651,10 +652,15 @@ const AuditLogsPage = () => {
                                     transition={{ delay: index * 0.05 }}
                                     hover
                                     sx={{
-                                        bgcolor: log.severity === 'CRITICAL' ? 'error.light' :
-                                            log.severity === 'ERROR' ? 'warning.light' : 'inherit'
+                                        bgcolor:
+                                            log.severity === 'CRITICAL'
+                                                ? 'error.light'
+                                                : log.severity === 'ERROR'
+                                                    ? 'warning.light'
+                                                    : 'inherit',
                                     }}
                                 >
+                                    {/* Timestamp */}
                                     <TableCell>
                                         <Typography variant="body2">
                                             {dayjs(log.timestamp).format('MMM DD, YYYY')}
@@ -664,8 +670,42 @@ const AuditLogsPage = () => {
                                         </Typography>
                                     </TableCell>
 
-                                    {/* ... other cells exactly as you had ... */}
+                                    {/* Action */}
+                                    <TableCell>
+                                        <Box display="flex" alignItems="center" gap={1}>
+                                            {getActionIcon(log.action)}
+                                            <Typography variant="body2">{log.action}</Typography>
+                                        </Box>
+                                    </TableCell>
 
+                                    {/* Severity */}
+                                    <TableCell>
+                                        <Box display="flex" alignItems="center" gap={1}>
+                                            {getSeverityIcon(log.severity)}
+                                            <Typography variant="body2">{log.severity}</Typography>
+                                        </Box>
+                                    </TableCell>
+
+                                    {/* User */}
+                                    <TableCell>
+                                        <Typography variant="body2">{log.user}</Typography>
+                                    </TableCell>
+
+                                    {/* IP Address */}
+                                    <TableCell>
+                                        <Typography variant="body2">
+                                            {log.details?.ipAddress || '—'}
+                                        </Typography>
+                                    </TableCell>
+
+                                    {/* Resource */}
+                                    <TableCell>
+                                        <Typography variant="body2">
+                                            {log.details?.resource || '—'}
+                                        </Typography>
+                                    </TableCell>
+
+                                    {/* Actions */}
                                     <TableCell>
                                         <Tooltip title="View Details">
                                             <IconButton
@@ -684,6 +724,7 @@ const AuditLogsPage = () => {
                         </TableBody>
                     </Table>
                 </TableContainer>
+
 
                 {/* Pagination */}
                 <Box display="flex" justifyContent="center" alignItems="center" mt={3}>

@@ -1,1 +1,35 @@
-2025-08-21T09:12:50.011+05:30  WARN 5528 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=11h17m36s874ms24µs100ns).
+2025-08-22T09:02:54.601+05:30  INFO 5476 --- [main] c.e.springapp.SpringappApplication       : Starting SpringappApplication using Java 17.0.16 with PID 5476 (C:\Users\ADMIN\Desktop\App Dev\springapp\target\classes started by ADMIN in C:\Users\ADMIN\Desktop\App Dev\springapp)
+2025-08-22T09:02:54.613+05:30 DEBUG 5476 --- [main] c.e.springapp.SpringappApplication       : Running with Spring Boot v3.2.5, Spring v6.1.6
+2025-08-22T09:02:54.616+05:30  INFO 5476 --- [main] c.e.springapp.SpringappApplication       : No active profile set, falling back to 1 default profile: "default"
+2025-08-22T09:02:57.058+05:30  INFO 5476 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-22T09:02:57.466+05:30  INFO 5476 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 365 ms. Found 10 JPA repository interfaces.
+2025-08-22T09:02:59.752+05:30  INFO 5476 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-22T09:02:59.807+05:30  INFO 5476 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-22T09:02:59.810+05:30  INFO 5476 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-08-22T09:03:00.106+05:30  INFO 5476 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-22T09:03:00.109+05:30  INFO 5476 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5394 ms
+2025-08-22T09:03:00.803+05:30  INFO 5476 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-22T09:03:01.116+05:30  INFO 5476 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-08-22T09:03:01.273+05:30  INFO 5476 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-08-22T09:03:02.356+05:30  INFO 5476 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-22T09:03:02.486+05:30  INFO 5476 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-08-22T09:03:03.452+05:30  INFO 5476 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@32328dc4
+2025-08-22T09:03:03.457+05:30  INFO 5476 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-08-22T09:03:03.699+05:30  WARN 5476 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-22T09:03:06.769+05:30  INFO 5476 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-22T09:03:07.192+05:30  INFO 5476 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-22T09:03:08.167+05:30 DEBUG 5476 --- [main] c.e.s.s.jwt.JwtAuthenticationFilter      : Filter 'jwtAuthenticationFilter' configured for use
+2025-08-22T09:03:08.257+05:30  INFO 5476 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-22T09:03:10.786+05:30  WARN 5476 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-22T09:03:11.556+05:30  INFO 5476 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6b3aae03, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@54dcf244, org.springframework.security.web.context.SecurityContextHolderFilter@7ab212f9, org.springframework.security.web.header.HeaderWriterFilter@41743ff4, org.springframework.web.filter.CorsFilter@22be190a, org.springframework.security.web.authentication.logout.LogoutFilter@4443aec3, com.example.springapp.security.jwt.JwtAuthenticationFilter@1fdbba0d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@25be3c66, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1e07ae6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@23e9526b, org.springframework.security.web.session.SessionManagementFilter@1558b8e7, org.springframework.security.web.access.ExceptionTranslationFilter@79f3d15f, org.springframework.security.web.access.intercept.AuthorizationFilter@19bdf520]
+2025-08-22T09:03:12.577+05:30  INFO 5476 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-08-22T09:03:12.605+05:30  INFO 5476 --- [main] c.e.springapp.SpringappApplication       : Started SpringappApplication in 18.986 seconds (process running for 19.968)
+2025-08-22T09:03:12.809+05:30 DEBUG 5476 --- [main] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id 
+    from
+        user u1_0 
+    where
+        u1_0.role=? 
+    limit
+        ?

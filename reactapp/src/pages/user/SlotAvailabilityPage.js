@@ -16,6 +16,7 @@ import {
   CircularProgress,
   Paper,
   Avatar,
+  Pagination,
 } from '@mui/material';
 import {
   LocalParking,
@@ -131,36 +132,47 @@ const SlotCard = ({ slot, onBook ,facilities}) => {
       </Card>
     </motion.div>
   );
-
 };
-
 const SlotAvailabilityPage = () => {
   const [slots, setSlots] = useState([]);
   const [facilities, setFacilities] = useState([]);
-  const [filteredSlots, setFilteredSlots] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  // Pagination
+  const [page, setPage] = useState(0);
+  const [size] = useState(4);
+  const [totalPages, setTotalPages] = useState(0);
+
   const [filters, setFilters] = useState({
     facility: '',
     slotType: '',
     availableOnly: true,
   });
+
   const navigate = useNavigate();
 
   useEffect(() => {
     fetchSlots();
     fetchFacilities();
-    const interval = setInterval(fetchSlots, 30000); // Refresh every 30 seconds
+    const interval = setInterval(fetchSlots, 30000);
     return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    applyFilters();
-  }, [slots, filters]);
+  }, [page, filters]);
 
   const fetchSlots = async () => {
+    setLoading(true);
     try {
-      const response = await parkingSlotAPI.getAll();
-      setSlots(response.data);
+      const params = {
+        page,
+        size,
+        facilityId: filters.facility || null,
+        slotType: filters.slotType || null,
+      };
+      if (typeof filters.availableOnly === "boolean") {
+        params.availableOnly = filters.availableOnly;
+      }
+      const response = await parkingSlotAPI.getPaginated(params);
+      setSlots(response.data.content);
+      setTotalPages(response.data.totalPages);
     } catch (error) {
       console.error('Error fetching slots:', error);
       toast.error('Failed to fetch parking slots');
@@ -173,28 +185,9 @@ const SlotAvailabilityPage = () => {
     try {
       const response = await facilityAPI.getAll();
       setFacilities(response.data);
-      console.log('Facilities:', facilities);
     } catch (error) {
       console.error('Error fetching facilities:', error);
     }
-  };
-
-  const applyFilters = () => {
-    let filtered = [...slots];
-    console.log('Slots:', slots);
-    if (filters.facility) {
-      filtered = filtered.filter(slot => slot.facilityId === parseInt(filters.facility));
-    }
-
-    if (filters.slotType) {
-      filtered = filtered.filter(slot => slot.slotType === filters.slotType);
-    }
-
-    if (filters.availableOnly) {
-      filtered = filtered.filter(slot => slot.isAvailable);
-    }
-
-    setFilteredSlots(filtered);
   };
 
   const handleFilterChange = (field) => (event) => {
@@ -202,6 +195,7 @@ const SlotAvailabilityPage = () => {
       ...filters,
       [field]: event.target.value,
     });
+    setPage(0); // Reset to first page when filter changes
   };
 
   const handleBookSlot = (slot) => {
@@ -218,10 +212,7 @@ const SlotAvailabilityPage = () => {
 
   return (
     <Box>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-      >
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
         <Paper sx={{ p: 3, mb: 3 }}>
           <Typography variant="h4" gutterBottom>
             Available Parking Slots
@@ -281,7 +272,8 @@ const SlotAvailabilityPage = () => {
                   label="Availability"
                 >
                   <MenuItem value={true}>Available Only</MenuItem>
-                  <MenuItem value={false}>All Slots</MenuItem>
+                  <MenuItem value={false}>Unavailable</MenuItem>
+                  <MenuItem value={"all"}>All Slots</MenuItem>
                 </Select>
               </FormControl>
             </Grid>
@@ -291,7 +283,7 @@ const SlotAvailabilityPage = () => {
 
       {/* Slots Grid */}
       <Grid container spacing={3}>
-        {filteredSlots.length === 0 ? (
+        {slots.length === 0 ? (
           <Grid item xs={12}>
             <Card>
               <CardContent sx={{ textAlign: 'center', py: 4 }}>
@@ -310,13 +302,25 @@ const SlotAvailabilityPage = () => {
             </Card>
           </Grid>
         ) : (
-          filteredSlots.map((slot) => (
+          slots.map((slot) => (
             <Grid item xs={12} sm={6} md={4} lg={3} key={slot.slotId}>
-              <SlotCard slot={slot} onBook={handleBookSlot} facilities={facilities}/>
+              <SlotCard slot={slot} onBook={handleBookSlot} facilities={facilities} />
             </Grid>
           ))
         )}
       </Grid>
+
+      {/* Pagination */}
+      {totalPages > 1 && (
+        <Box display="flex" justifyContent="center" mt={4}>
+          <Pagination
+            count={totalPages}
+            page={page + 1} // MUI uses 1-based index
+            onChange={(e, newPage) => setPage(newPage - 1)}
+            color="primary"
+          />
+        </Box>
+      )}
     </Box>
   );
 };
