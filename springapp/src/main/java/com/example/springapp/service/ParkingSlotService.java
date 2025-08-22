@@ -16,6 +16,11 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.springframework.transaction.annotation.Transactional;
+
+import com.example.springapp.model.Notification;
+import com.example.springapp.repository.NotificationRepository;
+
 @Service
 public class ParkingSlotService {
 
@@ -24,6 +29,9 @@ public class ParkingSlotService {
     
     @Autowired
     private BookingRepository bookingRepository;
+    
+    @Autowired
+    private NotificationRepository notificationRepository;
 
     public List<ParkingSlotDTO> getAll() {
         return repository.findAll()
@@ -140,8 +148,28 @@ public class ParkingSlotService {
                 .orElse(null);
     }
 
-    public void delete(Long id) {
-        repository.deleteById(id);
+    @Transactional
+     public void delete(Long slotId) {
+        // 1. Find all bookings for this slot
+        List<Booking> bookings = bookingRepository.findBySlotSlotId(slotId);
+
+        // 2. Send notifications to each user
+        for (Booking booking : bookings) {
+            Notification notification = new Notification();
+            notification.setUser(booking.getUser());
+            notification.setMessage("Your booking for slot " + slotId + " has been cancelled by admin.");
+            notification.setType(Notification.Type.ALERT);
+            notification.setRead(false);
+            notification.setCreatedDate(LocalDateTime.now());
+            notification.setPriority(Notification.Priority.valueOf("HIGH"));
+            notification.setRelatedEntityType("SLOT");
+            notification.setRelatedEntityId(String.valueOf(slotId));
+            notificationRepository.save(notification);
+        }
+
+        bookingRepository.deleteBySlotSlotId(slotId);
+
+        repository.deleteById(slotId);
     }
 
     // Time-based availability checking methods

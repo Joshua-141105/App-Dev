@@ -71,7 +71,7 @@ public class Booking {
     @JsonIgnore
     private List<BookingHistory> history = new ArrayList<>();
 
-    @OneToOne(mappedBy = "booking", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToOne(mappedBy = "booking", cascade = {CascadeType.PERSIST, CascadeType.MERGE,CascadeType.REMOVE}, orphanRemoval = true)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     @JsonIgnoreProperties("booking")  

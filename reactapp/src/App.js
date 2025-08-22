@@ -51,49 +51,51 @@ import AdminDashboard from './pages/dashboard/AdminDashboard';
 import { getStoredUser, removeStoredUser } from './utils/auth';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { CustomThemeProvider as AppThemeProvider } from './context/ThemeProvider';
+import { NotificationsProvider } from './context/NotificationContext';
 
 function App() {
   return (
     <AppThemeProvider>
       <AuthProvider>
-        <CssBaseline />
-        <Box 
-          sx={{ 
-            height: '100vh',
-            overflow: 'hidden',
-            display: 'flex',
-            flexDirection: 'column',
-          }}
-        >
-          <Router>
-            <Routes>
-              {/* Auth Routes */}
-              <Route path="/login" element={<LoginPage />} />
-              <Route path="/register" element={<RegisterPage />} />
-              <Route path="/forgot-password" element={<ForgotPasswordPage />} />
-              
-              {/* Protected Routes */}
-              <Route path="/*" element={
-                <ProtectedRoute>
-                  <MainLayout />
-                </ProtectedRoute>
-              } />
-            </Routes>
-            
-            <ToastContainer 
-              position="top-right"
-              autoClose={5000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-              style={{ zIndex: 9999 }} // Ensure toasts appear above fixed elements
-            />
-          </Router>
-        </Box>
+        <NotificationsProvider>
+
+          <CssBaseline />
+          <Box
+            sx={{
+              height: '100vh',
+              overflow: 'hidden',
+              display: 'flex',
+              flexDirection: 'column',
+            }}
+          >
+            <Router>
+              <Routes>
+                {/* Auth Routes */}
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/register" element={<RegisterPage />} />
+                <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+
+                {/* Protected Routes */}
+                <Route path="/*" element={
+                  <ProtectedRoute>
+                    <MainLayout />
+                  </ProtectedRoute>
+                } />
+              </Routes>
+
+              <ToastContainer
+                position="top-right"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                draggable
+                style={{ zIndex: 9999 }} // Ensure toasts appear above fixed elements
+              />
+            </Router>
+          </Box>
+        </NotificationsProvider>
       </AuthProvider>
     </AppThemeProvider>
   );
@@ -110,17 +112,17 @@ const MainLayout = () => {
     <DashboardLayout>
       <Routes>
         <Route path="/" element={<Navigate to="/dashboard" replace />} />
-        <Route 
-          path="/dashboard" 
+        <Route
+          path="/dashboard"
           element={
             user.role === 'USER' ? <UserDashboard /> :
-            user.role === 'FACILITY_MANAGER' ? <ManagerDashboard /> :
-            user.role === 'SYSTEM_ADMIN' ? <AdminDashboard /> :
-            user.role === 'SECURITY' ? <SecurityDashboard /> :
-            <UserDashboard />
+              user.role === 'FACILITY_MANAGER' ? <ManagerDashboard /> :
+                user.role === 'SYSTEM_ADMIN' ? <AdminDashboard /> :
+                  user.role === 'SECURITY' ? <SecurityDashboard /> :
+                    <UserDashboard />
           }
         />
-        
+
         {/* User Routes */}
         <Route path="/slots" element={<SlotAvailabilityPage />} />
         <Route path="/book-slot" element={<BookingFormPage />} />
@@ -132,79 +134,79 @@ const MainLayout = () => {
         <Route path="/notifications" element={<NotificationsPage />} />
 
         {/* Manager Routes */}
-        <Route 
-          path="/slot-management" 
+        <Route
+          path="/slot-management"
           element={
             <ProtectedRoute requiredRoles={['FACILITY_MANAGER', 'SYSTEM_ADMIN']}>
               <SlotManagementPage />
             </ProtectedRoute>
-          } 
+          }
         />
-        <Route 
-          path="/pricing" 
+        <Route
+          path="/pricing"
           element={
             <ProtectedRoute requiredRoles={['FACILITY_MANAGER', 'SYSTEM_ADMIN']}>
               <PricingPage />
             </ProtectedRoute>
-          } 
+          }
         />
-        <Route 
-          path="/analytics" 
+        <Route
+          path="/analytics"
           element={
             <ProtectedRoute requiredRoles={['FACILITY_MANAGER', 'SYSTEM_ADMIN']}>
               <FacilityAnalyticsPage />
             </ProtectedRoute>
-          } 
+          }
         />
-        <Route 
-          path="/financial-reports" 
+        <Route
+          path="/financial-reports"
           element={
             <ProtectedRoute requiredRoles={['FACILITY_MANAGER', 'SYSTEM_ADMIN']}>
               <FinancialReportsPage />
             </ProtectedRoute>
-          } 
+          }
         />
 
         {/* Admin Routes */}
-        <Route 
-          path="/user-management" 
+        <Route
+          path="/user-management"
           element={
             <ProtectedRoute requiredRoles={['SYSTEM_ADMIN']}>
               <UserManagementPage />
             </ProtectedRoute>
-          } 
+          }
         />
-        <Route 
-          path="/facility-management" 
+        <Route
+          path="/facility-management"
           element={
             <ProtectedRoute requiredRoles={['SYSTEM_ADMIN']}>
               <FacilityManagementPage />
             </ProtectedRoute>
-          } 
+          }
         />
-        <Route 
-          path="/facility-analytics" 
+        <Route
+          path="/facility-analytics"
           element={
             <ProtectedRoute requiredRoles={['SYSTEM_ADMIN', 'FACILITY_MANAGER']}>
               <FacilityAnalyticsReportPage />
             </ProtectedRoute>
-          } 
+          }
         />
-        <Route 
-          path="/access-control" 
+        <Route
+          path="/access-control"
           element={
             <ProtectedRoute requiredRoles={['SYSTEM_ADMIN']}>
               <AccessControlPage />
             </ProtectedRoute>
-          } 
+          }
         />
-        <Route 
-          path="/audit-logs" 
+        <Route
+          path="/audit-logs"
           element={
             <ProtectedRoute requiredRoles={['SYSTEM_ADMIN']}>
               <AuditLogsPage />
             </ProtectedRoute>
-          } 
+          }
         />
       </Routes>
     </DashboardLayout>

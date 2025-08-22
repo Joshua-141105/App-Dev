@@ -126,7 +126,7 @@ const SlotForm = ({ open, onClose, slot, facilities, onSave }) => {
                 onChange={handleChange('slotNumber')}
               />
             </Grid>
-            
+
             <Grid item xs={12} sm={6}>
               <FormControl fullWidth required>
                 <InputLabel>Slot Type</InputLabel>
@@ -431,6 +431,7 @@ const SlotManagementPage = () => {
       toast.error('Failed to delete slot');
     }
   };
+
 
   const handleToggleAvailability = async (slot) => {
     try {

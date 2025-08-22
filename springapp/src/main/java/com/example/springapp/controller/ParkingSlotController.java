@@ -4,6 +4,7 @@ import com.example.springapp.dto.ParkingSlotDTO;
 import com.example.springapp.service.ParkingSlotService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.data.domain.Page;
@@ -23,7 +24,6 @@ public class ParkingSlotController {
     public List<ParkingSlotDTO> getAll() {
         return service.getAll();
     }
-
     @GetMapping("/paginated")
     public Page<ParkingSlotDTO> getParkingSlots(
         @RequestParam(defaultValue = "0") int page,
@@ -36,14 +36,12 @@ public class ParkingSlotController {
         
         return service.getParkingSlots(page, size, facilityId, slotType, availableOnly, startTime, endTime);
     }
-
     @GetMapping("/{id}")
     public ResponseEntity<ParkingSlotDTO> getById(@PathVariable Long id) {
         return service.getById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
-
     @PostMapping
     public ParkingSlotDTO create(@RequestBody ParkingSlotDTO dto) {
         return service.save(dto);
@@ -57,11 +55,15 @@ public class ParkingSlotController {
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id) {
-        service.delete(id);
+    public ResponseEntity<String> delete(@PathVariable Long id) {
+        try {
+            service.delete(id);
+            return ResponseEntity.ok("Slot and related bookings deleted successfully");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                                 .body("Failed to delete slot: " + e.getMessage());
+        }
     }
-
-    // Get available slots for specific time range
     @GetMapping("/available")
     public List<ParkingSlotDTO> getAvailableSlotsForTime(
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime startTime,

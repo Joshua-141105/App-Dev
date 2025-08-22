@@ -49,13 +49,13 @@ const Sidebar = ({ mobileOpen, onMobileClose }) => {
       { text: 'Dashboard', icon: <Dashboard />, path: '/dashboard' },
       { text: 'Notifications', icon: <Notifications />, path: '/notifications' },
       { text: 'Profile', icon: <Person />, path: '/profile' },
+      { text: 'Booking History', icon: <History />, path: '/booking-history' },
     ];
-
+    
     const userItems = [
       { text: 'Available Slots', icon: <LocalParking />, path: '/slots' },
       { text: 'Book Slot', icon: <EventAvailable />, path: '/book-slot' },
       { text: 'My Bookings', icon: <DirectionsCar />, path: '/my-bookings' },
-      { text: 'Booking History', icon: <History />, path: '/booking-history' },
       { text: 'Vehicles', icon: <DirectionsCar />, path: '/vehicles' },
       { text: 'Payments', icon: <Payment />, path: '/payments' },
     ];
@@ -69,9 +69,11 @@ const Sidebar = ({ mobileOpen, onMobileClose }) => {
     ];
 
     const adminItems = [
+      { text: 'Pricing', icon: <PriceChange />, path: '/pricing' },
+      { text: 'Slot Management', icon: <LocalParking />, path: '/slot-management' },
       { text: 'User Management', icon: <SupervisorAccount />, path: '/user-management' },
       { text: 'Facility Management', icon: <Business />, path: '/facility-management' },
-      // { text: 'Facility Analytics', icon: <BarChart />, path: '/facility-analytics' },
+      { text: 'Facility Analytics', icon: <BarChart />, path: '/facility-analytics' },
       { text: 'Access Control', icon: <Security />, path: '/access-control' },
       { text: 'Audit Logs', icon: <AdminPanelSettings />, path: '/audit-logs' },
     ];
@@ -88,10 +90,10 @@ const Sidebar = ({ mobileOpen, onMobileClose }) => {
         items.push(...userItems);
         break;
       case 'FACILITY_MANAGER':
-        items.push(...userItems, ...managerItems);
+        items.push( ...managerItems);
         break;
       case 'SYSTEM_ADMIN':
-        items.push(...userItems, ...managerItems, ...adminItems);
+        items.push( ...adminItems);
         break;
       case 'SECURITY':
         items.push(...securityItems);

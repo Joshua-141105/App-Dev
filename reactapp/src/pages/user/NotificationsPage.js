@@ -40,6 +40,7 @@ import { useAuth } from '../../context/AuthContext';
 import { toast } from 'react-toastify';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
+import { useNotifications } from '../../context/NotificationContext';
 
 dayjs.extend(relativeTime);
 
@@ -263,61 +264,14 @@ const NotificationList = ({ notifications, onMarkRead, onDelete, onMarkAllRead }
 };
 
 const NotificationsPage = () => {
-  const { user } = useAuth();
-  const [notifications, setNotifications] = useState([]);
-  const [loading, setLoading] = useState(true);
+const { 
+    notifications, 
+    markAsRead, 
+    markAllAsRead, 
+    deleteNotification 
+  } = useNotifications();
+
   const [filter, setFilter] = useState('all'); // all, unread, read
-
-  useEffect(() => {
-    fetchNotifications();
-  }, []);
-
-  const fetchNotifications = async () => {
-    try {
-      const response = await notificationAPI.getByUser(user.id);
-      setNotifications(response.data.sort((a, b) => 
-        new Date(b.createdDate) - new Date(a.createdDate)
-      ));
-    } catch (error) {
-      console.error('Error fetching notifications:', error);
-      toast.error('Failed to fetch notifications');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleMarkAsRead = async (notificationId) => {
-    try {
-      await notificationAPI.markAsRead(notificationId);
-      fetchNotifications();
-      toast.success('Notification marked as read');
-    } catch (error) {
-      console.error('Error marking notification as read:', error);
-      toast.error('Failed to mark notification as read');
-    }
-  };
-
-  const handleMarkAllAsRead = async () => {
-    try {
-      await notificationAPI.markAllAsRead(user.id);
-      fetchNotifications();
-      toast.success('All notifications marked as read');
-    } catch (error) {
-      console.error('Error marking all notifications as read:', error);
-      toast.error('Failed to mark all notifications as read');
-    }
-  };
-
-  const handleDelete = async (notificationId) => {
-    try {
-      await notificationAPI.delete(notificationId);
-      fetchNotifications();
-      toast.success('Notification deleted');
-    } catch (error) {
-      console.error('Error deleting notification:', error);
-      toast.error('Failed to delete notification');
-    }
-  };
 
   const getFilteredNotifications = () => {
     switch (filter) {
@@ -332,6 +286,7 @@ const NotificationsPage = () => {
 
   const unreadCount = notifications.filter(n => !n.isRead).length;
 
+ 
   return (
     <Box>
       <motion.div
@@ -389,21 +344,37 @@ const NotificationsPage = () => {
       {/* Notifications List */}
       <Card>
         <CardContent>
-          {loading ? (
-            <Box display="flex" justifyContent="center" alignItems="center" minHeight="200px">
-              <Typography>Loading notifications...</Typography>
-            </Box>
-          ) : (
-            <NotificationList
-              notifications={getFilteredNotifications()}
-              onMarkRead={handleMarkAsRead}
-              onDelete={handleDelete}
-              onMarkAllRead={handleMarkAllAsRead}
-            />
-          )}
+          <NotificationList
+            notifications={getFilteredNotifications()}
+            onMarkRead={async (id) => {
+              try {
+                await markAsRead(id);
+                toast.success('Notification marked as read');
+              } catch {
+                toast.error('Failed to mark notification as read');
+              }
+            }}
+            onMarkAllRead={async () => {
+              try {
+                await markAllAsRead();
+                toast.success('All notifications marked as read');
+              } catch {
+                toast.error('Failed to mark all notifications as read');
+              }
+            }}
+            onDelete={async (id) => {
+              try {
+                await deleteNotification(id);
+                toast.success('Notification deleted');
+              } catch {
+                toast.error('Failed to delete notification');
+              }
+            }}
+          />
         </CardContent>
       </Card>
     </Box>
   );
 };
+
 export default NotificationsPage;

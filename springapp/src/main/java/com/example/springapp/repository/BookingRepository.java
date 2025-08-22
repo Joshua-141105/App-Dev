@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.springapp.model.User;
 
@@ -94,4 +95,9 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
     
     // Pagination support for user bookings
     Page<Booking> findByUserUserIdOrderByCreatedDateDesc(Long userId, Pageable pageable);
+
+    List<Booking> findBySlotSlotId(Long slotId);
+    
+    @Transactional
+    void deleteBySlotSlotId(Long slotId);
 }

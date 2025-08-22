@@ -278,7 +278,6 @@ const BookingFormPage = () => {
   };
 
   const suggestAlternativeTimes = () => {
-    // Suggest next available 2-hour slot
     const newStartTime = formData.endTime;
     const newEndTime = newStartTime.add(2, 'hour');
 
@@ -383,8 +382,6 @@ const BookingFormPage = () => {
               </CardContent>
             </Card>
           </Grid>
-
-          {/* Booking Form */}
           <Grid item xs={12} md={8}>
             <Card>
               <CardContent>
